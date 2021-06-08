@@ -1,0 +1,25 @@
+Test 0 # Sample Dataset (your code is not run on this dataset)
+Input:
+    AACGTA
+    CCCGTT
+    CACCTT
+    GGATTA
+    TTCCGG
+Output:
+    {'A': [0.2, 0.4, 0.2, 0.0, 0.0, 0.4], 'C': [0.4, 0.2, 0.8, 0.4, 0.0, 0.0], 'G': [0.2, 0.2, 0.0, 0.4, 0.2, 0.2], 'T': [0.2, 0.2, 0.0, 0.2, 0.8, 0.4]}
+
+Test 1 # Full dataset
+Input:
+    GTACAACTGT
+    CAACTATGAA
+    TCCTACAGGA
+    AAGCAAGGGT
+    GCGTACGACC
+    TCGTCAGCGT
+    AACAAGGTCA
+    CTCAGGCGTC
+    GGATCCAGGT
+    GGCAAGTACC
+Output:
+    {'A': [0.2, 0.3, 0.3, 0.3, 0.6, 0.4, 0.2, 0.2, 0.1, 0.3], 'C': [0.2, 0.3, 0.4, 0.3, 0.2, 0.3, 0.2, 0.1, 0.3, 0.3], 'G': [0.4, 0.2, 0.3, 0.0, 0.1, 0.3, 0.4, 0.5, 0.5, 0.0], 'T': [0.2, 0.2, 0.0, 0.4, 0.1, 0.0, 0.2, 0.2, 0.1, 0.4]}
+

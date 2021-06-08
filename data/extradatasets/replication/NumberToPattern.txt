@@ -1,0 +1,5 @@
+Input
+5353
+7
+Output
+CCATGGC

@@ -1,0 +1,25 @@
+Test 0 # Sample Dataset (your code is not run on this dataset)
+Input:
+    AACGTA
+    CCCGTT
+    CACCTT
+    GGATTA
+    TTCCGG
+Output:
+    14
+
+Test 1 # Full dataset
+Input:
+    GTACAACTGT
+    CAACTATGAA
+    TCCTACAGGA
+    AAGCAAGGGT
+    GCGTACGACC
+    TCGTCAGCGT
+    AACAAGGTCA
+    CTCAGGCGTC
+    GGATCCAGGT
+    GGCAAGTACC
+Output:
+    57
+

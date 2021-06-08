@@ -1,0 +1,49 @@
+Test 0 # Sample Dataset (your code is not run on this dataset)
+Input:
+    GCGCG
+    GCG
+Output:
+    2
+
+Test 1 # Simple test (Pattern doesn't appear at the beginning or end of Text, and there are no overlaps)
+Input:
+    ACGTACGTACGT
+    CG
+Output:
+    3
+
+Test 2 # Pattern appears at the very beginning of Text
+Input:
+    AAAGAGTGTCTGATAGCAGCTTCTGAACTGGTTACCTGCCGTGAGTAAATTAAATTTTATTGACTTAGGTCACTAAATACTTTAACCAATATAGGCATAGCGCACAGACAGATAATAATTACAGAGTACACAACATCCAT
+    AAA
+Output:
+    4
+
+Test 3 # Pattern appears at the very end of Text
+Input:
+    AGCGTGCCGAAATATGCCGCCAGACCTGCTGCGGTGGCCTCGCCGACTTCACGGATGCCAAGTGCATAGAGGAAGCGAGCAAAGGTGGTTTCTTTCGCTTTATCCAGCGCGTTAACCACGTTCTGTGCCGACTTT
+    TTT
+Output:
+    4
+
+Test 4 # Make sure you're not also counting reverse complements
+Input:
+    GGACTTACTGACGTACG
+    ACT
+Output:
+    2
+
+Test 5 # Pattern has overlapping occurrences in Text
+Input:
+    ATCCGATCCCATGCCCATG
+    CC
+Output:
+    5
+
+Test 6 # Full dataset
+Input:
+    CTGTTTTTGATCCATGATATGTTATCTCTCCGTCATCAGAAGAACAGTGACGGATCGCCCTCTCTCTTGGTCAGGCGACCGTTTGCCATAATGCCCATGCTTTCCAGCCAGCTCTCAAACTCCGGTGACTCGCGCAGGTTGAGTA
+    CTC
+Output:
+    9
+

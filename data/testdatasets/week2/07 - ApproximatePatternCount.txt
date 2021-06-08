@@ -1,0 +1,32 @@
+Test 0 # Sample Dataset (your code is not run on this dataset)
+Input:
+    GAGG
+    TTTAGAGCCTTCAGAGG
+    2
+Output:
+    4
+
+Test 1 # Check that the output is > 0 and that you handle overlapping kmers
+Input:
+    AA
+    AAA
+    0
+Output:
+    2
+
+Test 2 # Check that you find kmers with < d mismatches as well as with exactly d mismatches
+Input:
+    ATA
+    ATA
+    1
+Output:
+    1
+
+Test 3 # Full dataset
+Input:
+    GTGCCG
+    AGCGTGCCGAAATATGCCGCCAGACCTGCTGCGGTGGCCTCGCCGACTTCACGGATGCCAAGTGCATAGAGGAAGCGAGCAAAGGTGGTTTCTTTCGCTTTATCCAGCGCGTTAACCACGTTCTGTGCCGACTTT
+    3
+Output:
+    24
+

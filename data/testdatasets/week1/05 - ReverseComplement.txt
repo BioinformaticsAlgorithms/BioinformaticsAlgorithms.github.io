@@ -1,0 +1,18 @@
+Test 0 # Sample Dataset (your code is not run on this dataset)
+Input:
+    AAAACCCGGT
+Output:
+    ACCGGGTTTT
+
+Test 1 # Check if you reversed but didn't complement, or if you complemented but didn't reverse
+Input:
+    ACACAC
+Output:
+    GTGTGT
+
+Test 2 # Full dataset
+Input:
+    AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC
+Output:
+    GCTGCTATCAGACACTCTTTTTTTAATCCACACAGAGACATATTGCCCGTTGCAGTCAGAATGAAAAGCT
+

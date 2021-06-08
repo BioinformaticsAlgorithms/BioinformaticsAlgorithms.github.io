@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<!-- Mobile Redirect -->
+<script src="http://static.dudamobile.com/DM_redirect.js" type="text/javascript"></script>
+<script type="text/javascript">DM_redirect("http://m.bioinformaticsalgorithms.com");</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Walkthrough | Hierarchical Clustering with Gene Pattern </title>
+<link rel="stylesheet" type="/text/css" href="../Styles/960_24_col.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/reset.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/text.css" />
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51449831-1', 'bioinformaticsalgorithms.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- Needed for JQuery in order to have expandable FAQs -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<!-- JQuery Javascript code -->
+<script>
+ $(document).ready(function() {
+
+	$('.faq_question').click(function() {
+
+		if ($(this).parent().is('.open')){
+			$(this).closest('.faq').find('.faq_answer_container').animate({'height':'0'},500);
+			$(this).closest('.faq').removeClass('open');
+
+			}else{
+				var newHeight =$(this).closest('.faq').find('.faq_answer').height() +'px';
+				$(this).closest('.faq').find('.faq_answer_container').animate({'height':newHeight},500);
+				$(this).closest('.faq').addClass('open');
+			}
+
+	});
+
+});
+</script>
+
+</head>
+
+<body>
+
+    <div id="content" class="container_24 clearfix">
+      <div class="main-content">
+        <div class="header-img">
+          <img src="../images/header-img.jpg" alt="Bioinformatics Algorithms: An Active Learning Approach" width="960" height="330" />
+        </div>
+        <div class="nav">
+          <ul>
+            <li><a href="../index.htm">Home</a></li>
+            <li><a href="../about-the-author.htm">Authors</a></li>
+            <li><a href="../contents.htm">Contents</a></li>
+            <li><a href="../faqs.htm">FAQs</a></li>
+            <li><a href="../videos.htm">Videos & Slides</a></li>
+                        <li><a href="https://secure.mybookorders.com/Orderpage/1402">Buy the Book!</a></li>
+            <li><a class="active" href="../contact.htm">Contact</a></li>
+          </ul>
+        </div>
+        
+    	<div class="section-about">
+			<h3>Walkthrough: How to perform hierarchical clustering with GenePattern</h3>
+			
+			<h4>by Niema Moshiri</h4>
+			
+			<li>Go to the following link and create a GenePattern account using the “Click to Register” button.  Then sign in using your login information. <a target="_blank" href="http://genepattern.broadinstitute.org/gp/pages/login.jsf">http://genepattern.broadinstitute.org/gp/pages/login.jsf</a></li><br>
+			
+			<center><img width="80%" src="http://bioinformaticsalgorithms.com/images/walkthroughs/rna-seq/57%20-%20Register%20for%20GenePattern.png"></center><br>
+			
+			<li>Visit the following link (the “HierarchicalClustering” module): <a href="http://genepattern.broadinstitute.org/gp/pages/index.jsf?lsid=HierarchicalClustering" target="_blank">http://genepattern.broadinstitute.org/gp/pages/index.jsf?lsid=HierarchicalClustering</a></li><br>
+			
+			<center><img width="80%" src="http://bioinformaticsalgorithms.com/images/walkthroughs/rna-seq/60%20-%20Select%20HierarchicalClustering%20Module.png"></center><br>
+			
+			<li>Next to “input filename*”, click “Upload File…” and choose “human_mouse.gct” (you can download this file at <a href="http://bioinformaticsalgorithms.com/data/softwaredatasets/human_mouse.gct.zip">this link</a>.</li><br>
+			
+			<center><img width="80%" src="http://bioinformaticsalgorithms.com/images/walkthroughs/rna-seq/61%20-%20Click%20%27Upload%20File...%27.png"></center><br>
+			
+			<li>Click the “Run” button to the right to queue the job (should take less than a minute to finish, typically seconds).</li><br>
+			
+			<center><img width="80%" src="http://bioinformaticsalgorithms.com/images/walkthroughs/rna-seq/63%20-%20Run%20HierarchicalClustering%20Module.png"></center><br>
+			
+			<li>When the job finishes (you can click on the link “Hierarchical Clustering” and click “Job Status” on the pop-out left-hand menu to see the job status), two output files will be created: “human_mouse.atr” and “human_mouse.cdt”. Download both files by clicking on each and clicking “Save File” in the left-hand menu that pops out.</li><br>
+			
+			<center><img width="80%" src="http://bioinformaticsalgorithms.com/images/walkthroughs/rna-seq/64%20-%20Click%20%27HierarchicalClustering%27%20when%20Done.png"></center><br>
+			
+			<center><img width="80%" src="http://bioinformaticsalgorithms.com/images/walkthroughs/rna-seq/65%20-%20Click%20%27Download%20Job%27.png"></center><br>
+			
+			<li>Visit the following link (the “HierarchicalClusteringViewer” module): <a target="_blank" href="http://genepattern.broadinstitute.org/gp/pages/index.jsf?lsid=HierarchicalClusteringViewer">http://genepattern.broadinstitute.org/gp/pages/index.jsf?lsid=HierarchicalClusteringViewer</a>. Next to “cdt file*”, click “Upload File…” and select “human_mouse.cdt”</li><br>
+			
+			<center><img width="80%" src="http://bioinformaticsalgorithms.com/images/walkthroughs/rna-seq/68%20-%20Click%20%27Upload%20File...%27.png"></center><br>
+			
+			<li>Next to “atr file”, click “Upload File…” and select “human_mouse.atr”</li><br>
+			
+			<center><img width="80%" src="http://bioinformaticsalgorithms.com/images/walkthroughs/rna-seq/70%20-%20Click%20%27Upload%20File...%27.png"></center><br>
+			
+			<li>Click the “Run” button at the bottom-right of the page to queue the job</li><br>
+			
+			<center><img width="80%" src="http://bioinformaticsalgorithms.com/images/walkthroughs/rna-seq/72%20-%20Run%20HierarchicalClusteringViewer%20Module.png"></center><br>
+			
+			<li>When the job finishes, click “Open Visualizer” if the visualizer does not open automatically.</li><br>
+			
+			</ul>
+		</div>
+	   </div>
+	</div>
+      <div id="footer" class="container_24 clearfix">
+        <div class="footer-links">
+         <a style="float: left;" href="http://coursera.org/specializations/bioinformatics" target="_blank"><img style="padding:10px;" src="../images/courseralogorgb_1.png" alt="Coursera" height="50" /></a>  <a style="float: right;" href="http://rosalind.info/problems/list-view/?location=bioinformatics-textbook-track" target="_blank"><img style="padding:10px;"  src="../images/rosalindlogo_1.png" alt="Rosalind" height="50" /></a>
+         &#169; 2015 by Phillip Compeau &amp; Pavel Pevzner | All Rights Reserved<br>
+          Vol. 1 ISBN: 978-0-9903746-1-9<br>
+          Vol. 2 ISBN: 978-0-9903746-2-6<br>
+        </div>
+      </div>
+</div>
+
+
+</body>
+</html>

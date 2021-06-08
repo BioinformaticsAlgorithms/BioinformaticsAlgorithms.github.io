@@ -1,0 +1,36 @@
+Test 0 # Sample Dataset (your code is not run on this dataset)
+Input:
+    0.8 0.0 0.0 0.2
+    0.0 0.6 0.2 0.0
+    0.2 0.2 0.8 0.0
+    0.0 0.2 0.0 0.8
+    TTACCTTAAC
+    GATGTCTGTC
+    ACGGCGTTAG
+    CCCTAACGAG
+    CGTCAGAGGT
+Output:
+    ACCT
+    ATGT
+    GCGT
+    ACGA
+    AGGT
+
+Test 1 # Full dataset
+Input:
+    0.5 0.0 0.2 0.2
+    0.3 0.6 0.2 0.0
+    0.2 0.2 0.6 0.0
+    0.0 0.2 0.0 0.8
+    TTACCTTAAC
+    GATGTCTGTC
+    ACGGCGTTAG
+    CCCTAACGAG
+    CGTCAGAGGT
+Output:
+    ACCT
+    ATGT
+    GCGT
+    ACGA
+    AGGT
+
