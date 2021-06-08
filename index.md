@@ -1,1 +1,1 @@
-<p>This is a test page.</p>
+<meta http-equiv="Refresh" content="0; url=http://bioinformaticsalgorithms.org" />
