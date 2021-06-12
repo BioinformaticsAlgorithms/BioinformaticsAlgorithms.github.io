@@ -1,4 +1,3 @@
-Input
-CTTCTCACGTACAACAAAATC
-Output
-2161555804173
+version https://git-lfs.github.com/spec/v1
+oid sha256:33f4ff42fa14146b591288c79925e1238dd30a60ed439a8842cd372a91c3397f
+size 48

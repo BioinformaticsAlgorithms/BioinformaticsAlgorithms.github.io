@@ -1,4 +1,3 @@
-Input
-1307
-Output
-34544458837656
+version https://git-lfs.github.com/spec/v1
+oid sha256:e1bbb02b86830a82b6aac7c190a3a480e1d73848352fe38e4337c548f9176da9
+size 33
