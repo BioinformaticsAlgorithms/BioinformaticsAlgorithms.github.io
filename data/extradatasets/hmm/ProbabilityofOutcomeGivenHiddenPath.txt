@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:51fe8d0ac2b6589d14b5ac5f04d88e586026348418053e0c7ea3fc70b467c30c
-size 226
+Input:
+zyyyxzxzyyzxyxxyyzyzzxyxyxxxxzxzxzxxzyzzzzyyxzxxxy
+--------
+x y z
+--------
+BAABBAABAABAAABAABBABBAAABBBABBAAAABAAAABBAAABABAA
+--------
+A B
+--------
+	x	y	z
+A	0.093	0.581	0.325	
+B	0.77	0.21	0.02
+
+Output:
+3.42316482177e-35

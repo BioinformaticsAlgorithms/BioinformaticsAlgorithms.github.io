@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c939402591381f77f835e4946ca6eaf32f87b9bcfb87dc3dbd3108f97c954ac4
-size 27
+Input
+5353
+7
+Output
+CCATGGC
