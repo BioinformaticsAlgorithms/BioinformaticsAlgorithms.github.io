@@ -1,3 +1,56 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:101891e97ee54bf00a2e7cbe4b0af4050c2306c05e65669ea59cb7085d0ccc11
-size 1476
+Test 0 # Sample Dataset (your code is not run on this dataset)
+Input:
+    GGGCCGTTGGT
+    GGACCGTTGAC
+Output:
+    3
+
+Test 1 # Make sure you return a positive number
+Input:
+    AAAA
+    TTTT
+Output:
+    4
+
+Test 2 # Check if you're accidentally returning Edit Distance instead of Hamming Distance
+Input:
+    ACGTACGT
+    TACGTACG
+Output:
+    8
+
+Test 3 # Check if you're accidentally counting the number of matches instead of the number of mismatches
+Input:
+    ACGTACGT
+    CCCCCCCC
+Output:
+    6
+
+Test 4 # Example where the two strings have no matches
+Input:
+    ACGTACGT
+    TGCATGCA
+Output:
+    8
+
+Test 5 # Check if you're missing the first index of the strings
+Input:
+    GATAGCAGCTTCTGAACTGGTTACCTGCCGTGAGTAAATTAAAATTTTATTGACTTAGGTCACTAAATACT
+    AATAGCAGCTTCTCAACTGGTTACCTCGTATGAGTAAATTAGGTCATTATTGACTCAGGTCACTAACGTCT
+Output:
+    15
+
+Test 6 # Check if you're missing the last index of the strings
+Input:
+    AGAAACAGACCGCTATGTTCAACGATTTGTTTTATCTCGTCACCGGGATATTGCGGCCACTCATCGGTCAGTTGATTACGCAGGGCGTAAATCGCCAGAATCAGGCTG
+    AGAAACCCACCGCTAAAAACAACGATTTGCGTAGTCAGGTCACCGGGATATTGCGGCCACTAAGGCCTTGGATGATTACGCAGAACGTATTGACCCAGAATCAGGCTC
+Output:
+    28
+
+Test 7 # Full dataset
+Input:
+    AGCGTGCCGAAATATGCCGCCAGACCTGCTGCGGTGGCCTCGCCGACTTCACGGATGCCAAGTGCATAGAGGAAGCGAGCAAAGGTGGTTTCTTTCGCTTTATCCAGCGCGTTAACCACGTTCTGTGCCGACTTT
+    AGAAACAGACCGCTATGTTCAACGATTTGTTTTATCTCGTCACCGGGATATTGCGGCCACTCATCGGTCAGTTGATTACGCAGGGCGTAAATCGCCAGAATCAGGCTGAAACCCTACGGACAGGTTTACGAACCT
+Output:
+    103
+

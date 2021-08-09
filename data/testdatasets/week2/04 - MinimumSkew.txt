@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c2b03ee18e3a69777c9a46a315351466f37f92e03ae86b0f6d6b890de1297192
-size 750
+Test 0 # Sample Dataset (your code is not run on this dataset)
+Input:
+    TAAAGACTGCCGAGAGGCCAACACGAGTGCTAGAACGAGGGGCGTAAACGCGGGTCCGAT
+Output:
+    11 24
+
+Test 1 # Check for index off-by-one errors (either indices are 1 too large or 1 too small)
+Input:
+    ACCG
+Output:
+    3
+
+Test 2 # Check if you're missing the last value
+Input:
+    ACCC
+Output:
+    4
+
+Test 3 # Check to make sure you're not finding maximum skew instead of minimum skew
+Input:
+    CCGGGT
+Output:
+    2
+
+Test 4 # Check if you're not finding all of the indices
+Input:
+    CCGGCCGG
+Output:
+    2 6
+
+Test 5 # Full dataset
+Input:
+    AGCGTGCCGAAATATGCCGCCAGACCTGCTGCGGTGGCCTCGCCGACTTCACGGATGCCAAGTGCATAGAGGAAGCGAGCAAAGGTGGTTTCTTTCGCTTTATCCAGCGCGTTAACCACGTTCTGTGCCGACTTT
+Output:
+    52
+

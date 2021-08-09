@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ffc83f755769be8bdd1a6665d6694ac85b70a90937da1e34f7f6ef37cb008302
-size 431
+Test 0 # Sample Dataset (your code is not run on this dataset)
+Input:
+    AAAACCCGGT
+Output:
+    ACCGGGTTTT
+
+Test 1 # Check if you reversed but didn't complement, or if you complemented but didn't reverse
+Input:
+    ACACAC
+Output:
+    GTGTGT
+
+Test 2 # Full dataset
+Input:
+    AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC
+Output:
+    GCTGCTATCAGACACTCTTTTTTTAATCCACACAGAGACATATTGCCCGTTGCAGTCAGAATGAAAAGCT
+

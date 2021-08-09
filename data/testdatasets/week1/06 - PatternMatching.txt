@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e4365fee0b02f16c214f876f3c29165008e12942dbf6540b7e3d3dd7c2b79ea5
-size 895
+Test 0 # Sample Dataset (your code is not run on this dataset)
+Input:
+    ATAT
+    GATATATGCATATACTT
+Output:
+    1 3 9
+
+Test 1 # Make sure that you're NOT counting Reverse Complements (yet)
+Input:
+    ACAC
+    TTTTACACTTTTTTGTGTAAAAA
+Output:
+    4
+
+Test 2 # Check if you're missing the occurrence of Pattern at the beginning of Genome
+Input:
+    AAA
+    AAAGAGTGTCTGATAGCAGCTTCTGAACTGGTTACCTGCCGTGAGTAAATTAAATTTTATTGACTTAGGTCACTAAATACTTTAACCAATATAGGCATAGCGCACAGACAGATAATAATTACAGAGTACACAACATCCAT
+Output:
+    0 46 51 74
+
+Test 3 # Check if you're missing the occurrence of Pattern at the end of Genome
+Input:
+    TTT
+    AGCGTGCCGAAATATGCCGCCAGACCTGCTGCGGTGGCCTCGCCGACTTCACGGATGCCAAGTGCATAGAGGAAGCGAGCAAAGGTGGTTTCTTTCGCTTTATCCAGCGCGTTAACCACGTTCTGTGCCGACTTT
+Output:
+    88 92 98 132
+
+Test 4 # Check if you're handling overlapping occurrences of Pattern
+Input:
+    ATA
+    ATATATA
+Output:
+    0 2 4
+
