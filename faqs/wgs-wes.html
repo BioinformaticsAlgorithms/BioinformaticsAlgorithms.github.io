@@ -1,1 +1,272 @@
-<meta http-equiv="Refresh" content="0; url=http://bioinformaticsalgorithms.org" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<!-- Mobile Redirect -->
+<script src="http://static.dudamobile.com/DM_redirect.js" type="text/javascript"></script>
+<script type="text/javascript">DM_redirect("http://m.bioinformaticsalgorithms.com");</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FAQs | Application Challenge | Genome vs. Exome Sequencing </title>
+<link rel="stylesheet" type="/text/css" href="../Styles/960_24_col.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/reset.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/text.css" />
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51449831-1', 'bioinformaticsalgorithms.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- Needed for JQuery in order to have expandable FAQs -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<!-- JQuery Javascript code -->
+<script>
+ $(document).ready(function() {
+
+	$('.faq_question').click(function() {
+
+		if ($(this).parent().is('.open')){
+			$(this).closest('.faq').find('.faq_answer_container').animate({'height':'0'},500);
+			$(this).closest('.faq').removeClass('open');
+
+			}else{
+				var newHeight =$(this).closest('.faq').find('.faq_answer').height() +'px';
+				$(this).closest('.faq').find('.faq_answer_container').animate({'height':newHeight},500);
+				$(this).closest('.faq').addClass('open');
+			}
+
+	});
+
+});
+</script>
+
+</head>
+
+<body>
+
+    <div id="content" class="container_24 clearfix">
+      <div class="main-content">
+        <div class="header-img">
+          <img src="../images/header-img.jpg" alt="Bioinformatics Algorithms: An Active Learning Approach" width="960" height="330" />
+        </div>
+        <div class="nav">
+          <ul>
+            <li><a href="../index.htm">Home</a></li>
+            <li><a href="../about-the-author.htm">Authors</a></li>
+            <li><a href="../contents.htm">Contents</a></li>
+            <li><a href="../faqs.htm">FAQs</a></li>
+            <li><a href="../videos.htm">Videos & Slides</a></li>
+                        <li><a href="https://secure.mybookorders.com/Orderpage/1402">Buy the Book!</a></li>
+            <li><a class="active" href="../contact.htm">Contact</a></li>
+          </ul>
+        </div>
+
+    	<div class="section-about">
+
+<h1>Application Challenge: Whole Genome Sequencing vs. Whole Exome Sequencing</h1>
+
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question"><a name="exome_sequencing"></a>How do biologists sequence the exome?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>The following <b>target-enrichment methods</b> capture genomic regions of interest from a DNA sample before sequencing. First, <b>polymerase chain reaction (PCR)</b> amplifies specific DNA sequences. It uses a single-stranded DNA fragment called an <b>oligonucleotide primer</b> as a start for DNA amplification. <b>Uniplex PCR</b> uses only one primer to amplify a single region, whereas <b>multiplex PCR</b> uses multiple primers to amplify multiple regions and enrich multiple genes at the same time. PCR, which was the basis of the 1993 Nobel Prize in Chemistry, is effective but has limitations on the length of regions that it can amplify.</p>
+
+				<p><br></p>
+
+				<p>The datasets provided in this Bioinformatics Application Challenge were generated using <b>in-solution capture</b>, an alternative approach to PCR. It uses <b>probes</b>, or short fragments of DNA (which in WES are generated from annotated genes), which hybridize to a DNA sample (i.e., sequencing reads). DNA fragments that hybridize to the probes are then sequenced. Biologists often call the probes used in WES “<b>enrichment probes</b>” because they “enrich” the sample for exonic DNA. Accordingly, the version of Isaac aimed at WES is called “Isaac enrichment”.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question"><a name="sequencing_costs"></a>What are the costs of genome and exome sequencing?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Exome sequencing requires only 7-10 GB of sequencing data (100X coverage), as opposed to the approximately 100 GB required for genome sequencing (35X coverage). These reduced costs make it feasible to increase the number of sequencing samples, enabling large, population-based comparisons. The current cost of human genome sequencing with 35X coverage is on the order of $1,000, whereas the cost of human exome sequencing with 100X coverage was approximately half that.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question"><a name="quality_scores"></a>What are quality scores?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Reads often have Phred quality scores, which specify the accuracy of each base in a read (<a href="https://www.ncbi.nlm.nih.gov/pubmed/9521921" target="_blank">Ewing et al., 1998</a>). Phred quality scores are important for deciding whether a given SNV is correct or represents a computational artifact.</p>
+
+				<p><br></p>
+
+				<p>Phred quality scores are defined as</p>
+
+				<p><br></p>
+
+				<p><center>Phred(<i>s</i>) = -10 log<sub>10</sub> Pr(<i>s</i>) ,</center></p>
+
+				<p><br></p>
+
+				<p>where Pr(<i>s</i>) is the estimated probability that a given base in a read is incorrect. For example, if Phred assigns a quality score of 30 to a base, the probability that this base is called incorrectly is 0.001; if Phred assigns a quality score of 20 to a base, then the probability that this base is called incorrectly is 0.01.</p>
+
+				<p><br></p>
+
+				<p>Various read mapping tools estimate the probability that a given SNV is incorrect based on Phred quality scores of individual reads covering the position of this SNV. The quality score is defined as</p>
+
+				<p><br></p>
+
+				<p><center>-10 log<sub>10</sub> Pr(<i>SNV is incorrect</i>) .</center></p>
+
+				<p><br></p>
+
+				<p>In layman’s terms, the larger the quality score, the more reliable the variant call.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question"><a name="precision_recall"></a>What are precision and recall?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>In many types of problems, we wish to classify objects into two groups, a <b>positive</b> group and a <b>negative</b> group. The objects already have correct assignments to these two groups, and our hope is to correctly infer the division.  For example, we may have a medical test, where patients either have a disease or not, and our goal is to classify them into the positive and negative groups accordingly.</p>
+
+				<p><br></p>
+
+				<p><b>Precision</b> is the number of true positives divided by the total number of positives, i.e., the fraction of objects that were assigned to the positive class that were identified correctly, or the ratio of true positives to total positives. Note that this concept is different from the fraction of tests that should have been assigned to the positive class and were indeed classified as positives, which is defined as the <b>recall</b>. To be more precise, a <b>false negative</b> is an object that should have been classified as positive but was classified as negative.  In this light, the recall is simply the ratio of the number of true positives to the sum of true positives and false negatives. High precision indicates that an algorithm returned substantially more relevant results than irrelevant, whereas high recall indicates that the algorithm returned most of the relevant results.</p>
+
+				<p><br></p>
+
+				<p>For example, say that we want to predict criminals in a population of 100 people containing 20 criminals. Algorithm 1 produces a list of 60 people, which contains all 20 of the actual criminals. Algorithm 2 produces a list of just 5 people, all of whom are actual criminals. Algorithm 1 has 100% recall, since it successfully predicted all 20 criminals, but it has only 33% precision, since only 20 of the 60 predicted criminals were correct. On the other hand, Algorithm 2 has 100% precision, since all 5 of the predicted criminals were correct, but it has 25% recall, since it only predicted 5 of the 20 criminals.</p>
+
+				<p><br></p>
+
+				<p>More generally, algorithms with high recall often have low precision, and vice-versa. As a result, many algorithms have a sliding curve of differing recall/precision rates based on their parameters, and researchers must choose the parameter values that provide a nice trade-off between precision and recall.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question"><a name="Isaac_parameters"></a>What are Isaac’s parameters?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>The Isaac Whole Genome Sequencing App for genome sequencing applications has the following parameters:</p>
+
+				<p><br></p>
+
+				<ul>
+					<li><i>Toggle for SV/CNV calling</i> (<b>SV = Structural Variation</b>, <b>CNV = Copy Number Variation</b>). Structural variations refer to large-scale changes in genomic architecture and thus are different from the SNVs or small indels that we considered before. They consist of duplications, rearrangements (inversions and translocations), and large indels. “Copy Number Variation” is a subcategory of “Structural Variation” that only includes insertions, deletions and duplications. </li>
+
+					<li><i>Toggle for gene and transcript annotations from either the RefSeq or the Ensembl database of genomic sequences.</i> The default setting is to use RefSeq, which is what we will use.</li>
+
+					<li><i>The minimum allowed variant quality</i> (<i>GQX</i>). GQX is a metric for variant quality, where higher GQX correlates with higher quality, so all variants that fall below the specific threshold are omitted from the results. GQX is computed using the statistics GQ and QUAL, which are Phred-scaled quality values. GQ, as defined in the VCF manual, is the “conditional genotype quality, encoded as a Phred-scaled quality score.”<br>
+					<br>
+					<center>GQ = -10 log<sub>10</sub> Pr(<i>call is incorrect</i> | <i>site is a variant</i>)</center>
+					<br>
+					QUAL is the Phred-scaled quality score for the assertion made in <i>n</i> alternate alleles (ALT). QUAL is defined as<br>
+					<br>
+					<center>-10 log<sub>10</sub> Pr(<i>call in ALT is wrong</i>).</center>
+					<br>
+					GQX is simply the minimum of GQ and QUAL. For our analyses using the Isaac apps on BaseSpace, we use the default parameter for minimum GQX threshold, which is 30.</li>
+
+					<li><i>Maximum allowed strand bias for variants</i>. Since DNA is double stranded, we expect that the number of reads mapping to a region on one strand (e.g., “<tt>AAAAAA</tt>”) is approximately equal to the number of reads mapping to the opposite strand (e.g., “<tt>TTTTTT</tt>”). If there is a strand bias above the maximum allowed threshold (i.e., the variant shows up significantly more in reads from one strand vs. the other), the variant is omitted from the results because extreme strand bias indicates a potential high false-positive rate for SNVs (<a href="http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-666" target="_blank">Guo et al, 2012</a>).</li>
+
+					<li><i>Flagging PCR duplicates</i>. We assume that, when we perform the sequencing, it is unlikely to generate two paired end reads with identical start sites (unless the coverage is significantly higher than read length). However, such identical reads do appear on read datasets due to various artifacts. These reads are removed in the “Flagging PCR duplicates” mode.</li>
+
+				</ul>
+
+					<p>The Isaac Enrichment App for WES applications has the following parameters:</p>
+
+					<p><br></p>
+
+				<ul>
+					<li>The “Targeted Regions” option specifies which kit was used to extract the exonic DNA.</li>
+
+					<li>The “Target Manifest” option specifies the specific regions of the exome in which you are interested (and is essentially a parameter to filter the output of the app). If you specify a Target Manifest, the Isaac Enrichment App still aligns the reads to the whole genome as it would without a Target Manifest, but when it outputs the results, it filters out any results that are not in the regions specified in the Target Manifest.</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question"><a name="version_differences"></a>What are the differences between the versions of Isaac for WGS and WES?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Isaac aligns reads to the entire genome in both genome and exome sequencing pipelines, i.e., it does not use a computational shortcut in the exome sequencing pipeline by aligning only to the exome since it may cause computational artifacts. Thus, why are there two separate apps (Isaac Whole Genome Sequencing App and Isaac Enrichment App) for seemingly identical computational tasks? The reason is for a simpler user interface: the underlying program performs similar steps, but there are certain parameters only relevant in genome sequencing data and certain parameters only relevant in exome sequencing data, so each specific app hides any non-relevant parameters so that an inexperienced user will not be confused.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question"><a name="maximum_errors"></a>Where is the parameter “maximum number of errors/mutations per read” in Isaac?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>To map a read, Isaac first finds a seed (a <i>k</i>-mer shared by this read and the genome) and then tries to extend this seed to the entire read length using dynamic programming. Isaac further maps the read to the genome if such extension results in an alignment with at most <i>t</i> mutations. Here, <i>k</i> and <i>t</i> are internal parameters for Isaac.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Question here</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				Answer here
+			</div>
+		</div>
+	</div>
+</div>
+-->
+
+
+
+		</div>
+	</div>
+  <div id="footer" class="container_24 clearfix">
+          <div class="footer-links">
+     <img style="float: left;" src="/../images/alp_logo.png" alt="Active Learning Publishers" height="50" />  <a style="float: right;" href="http://rosalind.info/problems/list-view/?location=bioinformatics-textbook-track" target="_blank"><img style="padding:10px;"  src="/images/rosalind_logo_white.png" alt="Rosalind" height="50" /></a>
+     &#169; 2018 by Phillip Compeau &amp; Pavel Pevzner | All Rights Reserved<br>
+      ISBN: 978-0-9903746-3-3<br>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

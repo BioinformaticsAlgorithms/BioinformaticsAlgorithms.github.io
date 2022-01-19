@@ -1,1 +1,598 @@
-<meta http-equiv="Refresh" content="0; url=http://bioinformaticsalgorithms.org" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<!-- Mobile Redirect -->
+<script src="http://static.dudamobile.com/DM_redirect.js" type="text/javascript"></script>
+<script type="text/javascript">DM_redirect("http://m.bioinformaticsalgorithms.com");</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FAQs | Chapter 1 | Where in the Genome Does DNA Replication Begin? </title>
+<link rel="stylesheet" type="/text/css" href="../Styles/960_24_col.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/reset.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/text.css" />
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51449831-1', 'bioinformaticsalgorithms.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- Needed for JQuery in order to have expandable FAQs -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<!-- JQuery Javascript code -->
+<script>
+ $(document).ready(function() {
+
+	$('.faq_question').click(function() {
+
+		if ($(this).parent().is('.open')){
+			$(this).closest('.faq').find('.faq_answer_container').animate({'height':'0'},500);
+			$(this).closest('.faq').removeClass('open');
+
+			}else{
+				var newHeight =$(this).closest('.faq').find('.faq_answer').height() +'px';
+				$(this).closest('.faq').find('.faq_answer_container').animate({'height':newHeight},500);
+				$(this).closest('.faq').addClass('open');
+			}
+
+	});
+
+});
+</script>
+
+</head>
+
+<body>
+
+    <div id="content" class="container_24 clearfix">
+      <div class="main-content">
+        <div class="header-img">
+          <img src="../images/header-img.jpg" alt="Bioinformatics Algorithms: An Active Learning Approach" width="960" height="330" />
+        </div>
+        <div class="nav">
+          <ul>
+            <li><a href="../index.htm">Home</a></li>
+            <li><a href="../about-the-author.htm">Authors</a></li>
+            <li><a href="../contents.htm">Contents</a></li>
+            <li><a href="../faqs.htm">FAQs</a></li>
+            <li><a href="../videos.htm">Videos & Slides</a></li>
+                        <li><a href="https://secure.mybookorders.com/Orderpage/1402">Buy the Book!</a></li>
+            <li><a class="active" href="../contact.htm">Contact</a></li>
+          </ul>
+        </div>
+
+
+    	<div class="section-about">
+
+    	<p style="margin-bottom:20px;"><strong><font color="red">Use promo code "BUNDLE" to receive 50% off Vol. 2 when you purchase Vol. 1!
+        </font></strong></p>
+
+<h1>Chapter 1: Where in the Genome Does DNA Replication Begin?</h1>
+
+<a name="week1"></a>
+
+<h3>(Week 1)</h3>
+
+<a name="pseudocode"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Can you tell me more about pseudocode?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Sure! We wrote an appendix on pseudocode for readers wanting more background on the subject. Click <a href="http://bioinformaticsalgorithms.com/excerpt/Pseudocode.pdf" target="_blank">here</a> to download.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<a name="important_ori"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why is it important to find the origin of replication?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>One of our first students on Coursera was Dr. <a href="https://www.linkedin.com/in/ravasz" target="_blank" rel="noopener nofollow">Mate Ravasz</a>, a biologist who was working on replication. The following answer is inspired by his response on the class discussion forum.</p>
+
+			<p><br></p>
+
+			<p>Knowing the origin of replication enables detailed studies of replication initiation. DNA replication requires various proteins to bind to <em>ori</em>, and once the replication machinery is ready, it activates itself and starts copying DNA. We know some but not all of the proteins involved in this process, and we still don't fully understand how these proteins contribute to replication. In fact, we have tried to hide the rather complicated details of the replication machinery, but you can check out the <a href="https://en.wikipedia.org/wiki/Prokaryotic_DNA_replication" target="_blank" rel="noopener nofollow">Prokaryotic DNA Replication</a> page on Wikipedia to learn more.</p>
+
+			<p><br></p>
+
+			<p>An error during replication can lead to various diseases, including cancer. To understand how replication initiation works and what causes it to malfunction, we must first know where to look for replication origins. For this reason, we must accurately locate <em>ori</em> sites in the genome to study their replication initiation. Things are made even more difficult when we move from bacteria to more complex organisms; the human genome has thousands of origins of replication.</p>
+
+			<p><br></p>
+
+			<p>As mentioned in the main text, biologists often design self-replicating DNA segments, called plasmids, by inserting an origin of replication into them. This is a crucial capability for many genetic engineering experiments, since placing a plasmid into a cell will allow it to replicate. When a cell replicates, its plasmids are distributed to sister cells. Therefore, if we know more about replication origins, we can introduce foreign DNA into an organism and have it stably maintained.</p>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<a name="DnaA_binding"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How does <em>DnaA</em> know which <em>DnaA</em> box to bind to?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p><em>DnaA</em> does not necessarily bind to just one <em>DnaA</em> box.  In fact, it may bind to all of them.</p>
+
+<p><br></p>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<a name="k_selection"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How would we select the parameter <i>k</i> (the length of the <i>DnaA</i> box) if we did not know that <i>DnaA</i> boxes typically have length 9?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>It is not immediately clear in Figure 1.3, reproduced below, whether observing three 9-mers in the replication origin of <i>Vibrio cholerae</i> is more surprising than observing four 8-mers or five 7-mers. See DETOUR: Probabilities of Patterns in a String for a discussion of how to select the value of <i>k</i> that results in the "most surprising" frequent <i>k</i>-mer.</p>
+
+<figure><center><img src="../images/Replication/most_frequent_k-mers.png" width="75%"></center></figure>
+
+<p><br></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="count_overlaps"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why do we count the number of overlapping rather than the number of non-overlapping occurrences of <i>k</i>-mers when we search for <i>DnaA</i> boxes?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>Depending on the application, biologists may choose to analyze overlapping or  non-overlapping <i>k</i>-mers. In the case when we search for <i>DnaA</i> boxes, this distinction is not very important, and we ask you to analyze overlapping <i>k</i>-mers because it makes the algorithms a bit easier to implement.</p></div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="standard_genome"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How do we have a standard genome sequence if mutations are introduced at each replication?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>A Teaching Assistant in the first session of our Coursera class, <a href="https://www.linkedin.com/in/robin-betz-b797bb60" target="_blank" rel="noopener nofollow">Robin Betz</a> (who is now a biophysics graduate student at Stanford University) responded to various questions on the Coursera discussion board. The following answer (along with some others) is motivated by one of her posts. </p>
+
+<p><br></p>
+
+<p>Mutations are the driving force of evolution in all domains of life, and no cell is immune to them. Moreover, mutations that arise in a child but are not present in either parent may lead to a disease. On average, humans acquire about 100 new mutations (called <strong>single nucleotide variants</strong> or <strong>SNVs</strong>) per genome each generation. Interestingly, the number of SNVs in a newborn increases with the age of the father but not the mother! </p>
+
+<p><br></p>
+
+<p>Also, your cells continue to mutate after you are born, and a bad mutation can cause cancer.  Nevertheless, the mutation rate is low enough that a single “genome” can provide a decent sketch of who you are as an individual.</p>
+
+<p><br></p>
+
+<p>Although genomes can mutate during replication, the cell has a number of proofreading mechanisms (one of which is <strong>mismatch repair</strong>) because it is under evolutionary pressure to maintain a functional genome.  For this reason, there are only about 100 mutations after each replication in a human genome with approximately 3 billion nucleotides.</p>
+
+<p><br></p>
+
+<p>The mismatch repair mechanism is a little complicated, but basically cells can stick a methyl group, -CH<sub>3</sub>, onto DNA to mark it in various ways. When an unmethylated cytosine is deaminated, it turns into uracil (<tt>U</tt>), which is not a valid base in DNA. The cell recognizes this mismatch as the result of deamination damage, and the enzyme <strong>uracil-DNA glycosylase</strong> chops out the uracil and replaces it with a cytosine, restoring the original <tt>G</tt>/<tt>C</tt> pair. If a methylated cytosine is deaminated, it turn into a thymine (<tt>T</tt>) and results in a <tt>T</tt>/<tt>G</tt> base pair. The cell can catch these <tt>T</tt>/<tt>G</tt> mismatches and use another enzyme, <strong>thymine-DNA glycosylase</strong>, to restore the cytosine and the original <tt>G</tt>/<tt>C</tt> pair.</p>
+
+<p><br></p>
+
+<p>Even though the cell can often catch these errors, some will get past anyway. Therefore, there is variation within the population as a result of accumulation of non-lethal variations. For example, on average about 0.1% of bases differ between any two humans. </p>
+
+<p><br></p>
+
+<p>If a deamination event occurs during cell replication (e.g., one DNA copy has a <tt>G</tt>/<tt>C</tt> while the other gets an <tt>A</tt>/<tt>T</tt>), the mutation will only be preserved if it is not lethal to the cell. Nonlethal mutations build up, which causes our genomes to change among different types of cells over our lifetime. It is the hope of bioinformaticians that future decreases in cost and advances in technology will allow us to identify how different types of cells in your body differ genetically. </p></div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<a name="illustration_repeated_strings"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Can I see an illustration of repeated strings in bacterial genomes?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>One of our former learners, Simon Crase, was kind enough to draw a histogram containing the number of occurrences of 9-mers (with reverse complements) in different bacterial genomes.  His plots are shown below for three bacterial genomes, compared to random DNA strings; note that the most frequent 9-mers occur much more often in real genomes than they would be expected to occur in a random string.  His source code is available <a href="https://github.com/weka511/bioinformatics" target="_blank" rel="noopener nofollow">here</a>.</p>
+
+			<p><br></p>
+
+<figure><center><img src="../images/Replication/9-mer_plot_e-coli.png" alt="" width="60%"></center></figure>
+
+<p><br></p>
+
+<figure><center><img src="../images/Replication/9-mer_plot_s-enterica.png" alt="" width="60%"></center></figure>
+
+<p><br></p>
+
+<figure><center><img src="../images/Replication/9-mer_plot_v-cholerae.png" alt="" width="60%"></center></figure></div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="500_4_clumps"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why did we not search for (500,4)-clumps after we determined that there are too many (500,3)-clumps in <i>E. coli</i>?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>We may be able to find biologically interesting 9-mers if we search for (500,4)-clumps, and we will certainly identify fewer strings.  However, these 9-mers might have nothing to do with <i>DnaA</i> boxes and <i>ori</i> regions because many <i>ori</i> regions have fewer than four <i>DnaA</i> boxes. Nevertheless, it is interesting to examine whether the most "clumped" regions in a bacterial genome reveal biologically interesting <i>k</i>-mers.</p></div>
+		</div>
+	</div>
+</div>
+
+
+
+<p><br></p>
+
+<a name="overcounting"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">In "DETOUR: Probabilities of patterns in a string", what does “over-counting” refer to when computing Pr(<i>N</i>, <i>A</i>, <i>Pattern</i>, <i>t</i>)?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>In this detour, we approximate the probability Pr(<i>N</i>, <i>A</i>, <i>Pattern</i>, <i>t</i>) that a string <i>Pattern</i> appears <i>t</i> or more times in a random string of length <i>N</i> formed from an alphabet of <i>A</i> letters. We prove that Pr(4, 2, <tt>"01"</tt>, 1) = 11/16 by showing that 11 out of 16 binary strings of length 4 contain the string <tt>"01"</tt>. The detour also describes the approximation</p>
+
+<p><br></p>
+
+<p><center>Pr(<i>N</i>, <i>A</i>, <i>Pattern</i>, <i>t</i>) ≈ <i>C</i>(<i>n</i> + <i>t</i>, <i>t</i>) · <i>A</i><sup><i>n</i></sup> / <i>A</i><sup><i>N</i></sup>,</center></p>
+
+<p><br></p>
+
+<p>where <i>C</i>(·, ·) the <a href="https://en.wikipedia.org/wiki/Combination" target="_blank">combination statistic</a>, <i>n</i> is defined as <i>N</i>-<i>t</i>·<i>k</i>, and <i>k</i> is the length of <i>Pattern</i>). For Pr(4, 2, <tt>"01"</tt>, 1), <i>n</i> = 4 - 1 · 2 = 2 and this approximation results in </p>
+
+<p><br></p>
+
+<p><center>Pr(4, 2, <tt>"01"</tt>, 1) ≈ <i>C</i>(2+1,1)·22 / 24 = 3·4/16 = 12/16,</center></p>
+
+<p><br></p>
+
+<p>which is slightly higher than the correct probability 11/16. The "over-counting" happened because the described approximation counts some strings contributing to Pr(4, 2, <tt>"01"</tt>, 1) more than once. Indeed, the approximation assumes that <tt>"01"</tt> may appear at any of three possible positions in a random string of length 4 as shown below ("?" refers to 0 or 1):</p>
+
+<p><br></p>
+
+<p><center><tt><font color="blue">01</font>??      ?<font color="blue">01</font>?      ??<font color="blue">01</font></tt></center></p>
+
+<p><br></p>
+
+<p>Since there are two possibilities for each "?" in the strings above (0 or 1), we end up with 3·4 = 12 strings:</p>
+
+<p><br></p>
+
+<p><center><tt><font color="blue">01</font>00      0<font color="blue">01</font>0      00<font color="blue">01</font><br>
+<b><font color="blue">01</font>01</b>      <b>0<font color="blue">10</font>1</b>      01<font color="blue">01</font><br>
+<font color="blue">01</font>10      1<font color="blue">01</font>0      10<font color="blue">01</font><br>
+<font color="blue">01</font>11      1<font color="blue">01</font>1      11<font color="blue">01</font></tt></center></p>
+
+<p><br></p>
+
+<p>However, we counted the boldfaced string <tt>"<b><font color="blue">01</font>01</b>"</tt> twice.</p></div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+
+<a name="week2"></a>
+
+<h3>(Week 2)</h3>
+
+<a name="DNA_polymerase_unidirectional"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why is DNA polymerase unidirectional?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>For this question, we do not feel the need to
+reinvent the wheel. One of our former students found an excellent
+YouTube video illustrating these details. </p>
+
+<p><br></p>
+
+<p><center><iframe width="640" height="360" src="//www.youtube.com/embed/y4hKibS2fAo?feature=player_detailpage" frameborder="0" allowfullscreen=""></iframe></center></p></div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<a name="frequent_words_scoring"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why do we not make the scoring function in the Frequent Words with Mismatches Problem more robust?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>Indeed, the scoring function in the Frequent Words with Mismatches and Reverse Complements Problem may count the same <em>k</em>-mers twice if these <em>k</em>-mers contributes to both <em>Count</em><sub><em>d</em></sub>(<em>Text</em>, <em>Pattern</em>) and <em>Count</em><sub><em>d</em></sub>(<em>Text</em>, <i>ReverseComplement</i>(<em>Pattern)</em>). For example, <tt>CTTCAG</tt> and its reverse complement <tt>CTGAAG</tt> are very similar, and both are just one mismatch away from <em>Text</em> = <tt>CTGCAG</tt>. Thus, <em>Count</em><sub>1</sub>(<em>Text</em>, <tt>CTTCAG</tt>) and <em>Count</em><sub>1</sub>(<em>Text</em>, <tt>CTTCAG</tt>)
+ will both count an approximate occurrence of <tt>CTGCAG</tt> twice. Thus, to
+improve our scoring function, the first thing that comes to mind is to
+divide <em>Count</em><sub><em>d</em></sub>(<em>Text</em>, <em>Pattern</em>) + <em>Count</em><sub><em>d</em></sub>(<em>Text</em>, <em>Pattern</em>) by 2 for a string <em>Pattern</em> that is a <strong>reverse palindrome</strong> (i.e., the reverse complement of <em>Pattern</em> is itself).</p>
+
+<p><br></p>
+
+<p>However, it becomes less clear what to do if <em>Pattern</em> is <em>almost</em> equal
+ to its reverse complement.  For the sake of simplicity, we are
+therefore willing to close our eyes to the limitations on our scoring
+function posed by reverse palindromes. However, we should be wary of any
+ candidates for <em>DnaA</em> boxes that are reverse palindromes (or nearly reverse palindromes).</p>
+ 			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<a name="deamination"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How does deamination lead to a mutation?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>Let's walk through deamination as it applies to a segment of double-stranded DNA. In the top of the figure below, the replication fork is about to open the seven base pairs shown and start replicating them. The (forward) half-strand on top is being synthesized as a single piece, whereas the (reverse) half-strand on the bottom is being synthesized in Okazaki fragments.  The bottom strand is more vulnerable to deamination because it spends more time single-stranded than the top strand. The process of deamination is shown on the bottom in the figure below.</p>
+
+			<p><br></p>
+
+			<figure><center><img src="../images/Replication/deamination.png" width="60%"></center></figure>
+
+			<p><br></p>
+
+			<figure><center><img src="../images/Replication/deamination_okazaki.png" width="60%"></center></figure>
+
+<p><b>Figure:</b> (Top) A replication fork is about to open seven base pairs. (Bottom) Deamination leads to a mutation of C into T and occurs on the bottom strand, where Okazaki fragments  are being synthesized. Since the strand on the top is synthesized all at
+ once, it has much smaller chance to be deaminated. After replication
+finishes, there are the two daughter strands, one of them with a
+mutation. The arrows indicate the direction of strand synthesis.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<a name="guanine"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">I understand why the amount of cytosine is decreasing on the forward half-strand, but why is the amount of guanine decreasing on the reverse half-strand?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>A set of supplemental slides attempting to further explain this can be found at <a href="http://bioinformaticsalgorithms.com/images/Replication/Skew_Supplemental_Slides.pdf" target="_blank">this link</a>.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<p><br></p>
+
+<a name="beginning_end_skew"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why are the values of the skew diagram at the beginning and end of the genome not the same?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>At the beginning of the genome, the skew is set equal to zero.  At the end of the genome, the skew should be equal to the total number of <tt>G</tt>'s minus the total number of <tt>C</tt>'s encountered in the genome.  So this value will only equal zero if the genome has equal amounts of cytosine and guanine, which is unlikely.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="T_C"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">If deamination decreases the amount of cytosine on the forward strand, and increases the amount of thymine on the forward strand and adenine on the reverse strand, why don't we examine the difference between occurrences of <tt>T</tt> and <tt>C</tt> or between <tt>A</tt> and <tt>C</tt>?  What is special about <tt>G</tt> and <tt>C</tt>?
+		</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>Either of these two alternatives is perfectly reasonable. But computing the skew as the difference between <tt>G</tt> and <tt>C</tt> performed the best in practice.</p>
+
+<p><br></p>
+
+<p>In particular, you may have noticed that the frequency of <tt>T</tt> on the forward half-strand hardly changed. Although deamination initially creates a surplus of thymine on the forward half-strand, this surplus may be reduced by follow-up mutations of thymine into other nucleotides. In fact, deamination is just one of many factors that may contribute to skew. See <a href="http://dx.doi.org/10.1016/S0378-1119(99)00297-8" target="_blank">Frank and Lobry, 1999</a> for a review of various mechanisms that contribute to the GC-skew.  <a href="http://www.ncbi.nlm.nih.gov/pubmed/10754068" target="_blank">Tillier and Collins, 2000</a> even argued that deamination is not the major factor contributing to GC-skew. The question is whether there is some mechanism that makes GC-skew such a useful tool for identifying the location of <tt>ori</tt> in some species (like <i>E. coli</i>) but not others.</p></div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="remaining_cytosine"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">If deamination results in the mutation of cytosine into thymine on the forward half-strand, why is there any cytosine remaining in the forward half-strand?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>Because the vast majority of a bacterium’s genome serves a vital purpose in its survival, only a small fraction of cytosine can be mutated and maintain a viable bacterium.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="single_DNA_strand"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why do we analyze only one strand of DNA to compute the skew diagram? Would the skew diagram change if we analyze the opposing strand of DNA? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>The skew diagram is constructed by walking along the strand of DNA in the 5’ → 3’ direction (see figure reproduced below). Therefore, the skew diagram constructed for the complementary strand of <i>E. coli</i> will change, since we will be traversing the genome in the opposite direction.</p>
+
+<p><br></p>
+
+<figure><center><img src="http://bioinformaticsalgorithms.com/images/Replication/increasing_decreasing_skew.png" width="70%"></center></figure>
+
+<p><br></p>
+
+<p>For example, if the <i>E. coli</i> skew diagram (reproduced below) is obtained by traversing the genome starting from some position in the genome above in the <i>clockwise</i> direction, then the skew diagram constructed for another strand corresponds to traversing the genome starting from the same position but in the <i>counterclockwise</i> direction.</p>
+
+<p><br></p>
+
+<figure><center><img src="http://bioinformaticsalgorithms.com/images/Replication/skew_diagram_ecoli.png" width="50%"></center></figure>
+
+<p>Also, note that for every interval of DNA, the difference between the amount of cytosine and guanine on the two strands have the same absolute values but different signs. Thus, the skew histogram for one strand is the "reversal" of the skew diagram for another strand. However, the minimum in both skew diagrams point to the same position in the genome.</p></div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<p><br></p>
+
+<a name="GC_AT_ratio"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">What is the ratio of <tt>G</tt>/<tt>C</tt> and <tt>A</tt>/<tt>T</tt> base pairs within a single strand?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>If you look at a double-stranded genome, then the number of occurrences of G and C are the same because guanine pairs with cytosine (we do not account for the rare cases of mismatched base pairs caused by damage to DNA).  However, the number of occurrences of G and C within a single strand may differ substantially.</p>
+
+<p><br></p>
+
+<p>Furthermore, despite base pairing, the amount of guanine and cytosine may be very different than the amount of adenine and thymine. For this reason, biologists refer to the percentage of guanine and cytosine nucleotides in a genome as the genome's GC-content. GC-content varies between species; the GC-content of the bacterium <i>Streptomyces coelicolor</i> is 72%, whereas the GC-content of the pathogen <i>Plasmodium falciparum</i>, which causes malaria, is only about 20%. In humans, the GC-content is about 42%.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="selecting_mismatches"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">In biological applications, how do we select the number of mismatches (<i>d</i>) when solving the Frequent Words with Mismatches Problem?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>Although there are no rigorous guidelines for selecting the parameter <i>d</i> in practice, biologists usually follow their intuition. On the one hand, <i>d</i> should not be too small, or else we may miss the biologically correct frequent word; on the other hand, <i>d</i> should not be too large, since many spurious approximate matches might be classified as putative <i>DnaA</i> boxes. In practice, biologists also analyze variations in experimentally confirmed <i>DnaA</i> boxes from well-studied bacteria and derive statistics for the expected number of mutations from the "canonical" <i>DnaA</i> box.  It turns out that most of these studies identify canonical <i>DnaA</i> boxes that are very conserved, having no more than one or two mutations.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="DnaA_insertions_deletions"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why do we only consider mismatches in <i>DnaA</i> boxes and not insertions and deletions of nucleotides?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>An insertion or deletion would likely prevent <i>DnaA</i> from being able to bind to the <i>DnaA</i> box because the interval is so short.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="starting_window"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why do we analyze the window starting (rather than ending or centered) at the position of <i>E. coli</i> where the skew achieves the minimum?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>This was an arbitrary choice, and we got lucky this time. In practice, biologists should explore various windows in the vicinity of the minimum skew.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<a name="terminus_replication_hidden_messages"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Does the terminus of replication contain hidden messages too?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p><i>E. coli</i> indeed contains ten 23 base pair hidden messages that are responsible for terminating replication. These messages are binding sites for the <b><i>Tus</i> protein</b>, which works as a replication fork trap. Each <i>Tus</i> binding site is asymmetric, meaning that it will halt the replication fork moving in one direction and allow the other replication fork to proceed until it is stopped by its own fork trap.  Can you find all ten <i>Tus</i> binding sites in <i>E. coli</i> without knowing what they are in advance?</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<a name="computing_frequencies_large_frequency_array"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">In <b>ComputingFrequencies</b>, why do we create a large frequency array instead of using a more efficient hash map?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p><b>ComputingFrequencies</b> can be made more memory-efficient using hashing. However, implementing a hash table from scratch is more difficult than implementing a frequency array. In some languages like Python or Go, hash tables are built-in and not difficult to implement, we want our book to be language-blind so that students who program in any language can easily implement its algorithms. </p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<a name="recursive_running_time"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How can we estimate the running time of recursive algorithms like <b>Neighbors</b>(<i>Pattern</i>,<i>d</i>)? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Estimating the running time of recursive algorithms can be tricky – you might like to consult <a href="https://en.wikipedia.org/wiki/Master_theorem" target="_blank">Wikipedia</a> to learn about the "Master Theorem", which often helps us analyze the running time of recursive algorithms. However, the running time of <b>Neighbors</b>(<i>Pattern</i>, <i>d</i>) can be evaluated by noticing that this algorithm simply generates all <i>d</i>-neighborhoods of all suffixes of <i>Pattern</i> and computes the Hamming distance between each string in each <i>d</i>-neighborhood and the corresponding suffix. Thus, if we denote the size of the <i>d</i>-neighborhood of a pattern of length <i>n</i> as size<sub><i>d</i></sub>(<i>n</i>), then the running time of <b>Neighbors</b>(<i>Pattern</i>, <i>d</i>) is:</p>
+
+				<p><br></p>
+
+				<p><center>∑<sub><i>n</i> ≤ |<i>Pattern</i>|</sub> <i>size</i><sub><i>d</i></sub>(<i>n</i>)·<i>n</i></center></p>
+
+				<p><br></p>
+
+				<p>If we use the notation <i>size</i><sup><i>i</i></sup>(<i>n</i>) to denote the number of strings having Hamming distance exactly <i>i</i> from any given string of length <i>n</i>, then</p>
+
+				<p><br></p>
+
+				<p><center><i>size</i><sub><i>d</i></sub>(<i>n</i>) = <i>size</i><sup>0</sup>(<i>n</i>)+ <i>size</i><sup>1</sup>(<i>n</i>) + ... + <i>size</i><sup><i>d</i></sup>(<i>n</i>)</center></p>
+
+				<p><br></p>
+
+				<p>and the running time of <b>Neighbors</b>(<i>Pattern</i>, <i>d</i>) is</p>
+
+				<p><br></p>
+
+				<p><center>∑<sub><i>i</i> ≤ <i>d</i></sub> Σ<sub><i>n</i> ≤|<i>Pattern</i>|</sub> <i>size</i><sup><i>i</i></sup>(<i>n</i>) · <i>n</i> .</center></p>
+
+				<p><br></p>
+
+				<p>The only thing left is to compute <i>size</i><sup><i>i</i></sup>(<i>n</i>) for any values of <i>i</i> and <i>n</i>, which we leave to you as an exercise. :)</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+		</div>
+	</div>
+  <div id="footer" class="container_24 clearfix">
+          <div class="footer-links">
+     <img style="float: left;" src="/../images/alp_logo.png" alt="Active Learning Publishers" height="50" />  <a style="float: right;" href="http://rosalind.info/problems/list-view/?location=bioinformatics-textbook-track" target="_blank"><img style="padding:10px;"  src="/images/rosalind_logo_white.png" alt="Rosalind" height="50" /></a>
+     &#169; 2018 by Phillip Compeau &amp; Pavel Pevzner | All Rights Reserved<br>
+      ISBN: 978-0-9903746-3-3<br>
+    </div>
+  </div>
+</div>
+</body>
+</html>

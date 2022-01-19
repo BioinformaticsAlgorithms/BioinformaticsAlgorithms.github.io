@@ -1,1 +1,197 @@
-<meta http-equiv="Refresh" content="0; url=http://bioinformaticsalgorithms.org" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<!-- Mobile Redirect -->
+<script src="http://static.dudamobile.com/DM_redirect.js" type="text/javascript"></script>
+<script type="text/javascript">DM_redirect("http://m.bioinformaticsalgorithms.com");</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FAQs | Application Challenge | Sequencing </title>
+<link rel="stylesheet" type="/text/css" href="../Styles/960_24_col.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/reset.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/text.css" />
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51449831-1', 'bioinformaticsalgorithms.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- Needed for JQuery in order to have expandable FAQs -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<!-- JQuery Javascript code -->
+<script>
+ $(document).ready(function() {
+
+	$('.faq_question').click(function() {
+
+		if ($(this).parent().is('.open')){
+			$(this).closest('.faq').find('.faq_answer_container').animate({'height':'0'},500);
+			$(this).closest('.faq').removeClass('open');
+
+			}else{
+				var newHeight =$(this).closest('.faq').find('.faq_answer').height() +'px';
+				$(this).closest('.faq').find('.faq_answer_container').animate({'height':newHeight},500);
+				$(this).closest('.faq').addClass('open');
+			}
+
+	});
+
+});
+</script>
+
+</head>
+
+<body>
+
+    <div id="content" class="container_24 clearfix">
+      <div class="main-content">
+        <div class="header-img">
+          <img src="../images/header-img.jpg" alt="Bioinformatics Algorithms: An Active Learning Approach" width="960" height="330" />
+        </div>
+        <div class="nav">
+          <ul>
+            <li><a href="../index.htm">Home</a></li>
+            <li><a href="../about-the-author.htm">Authors</a></li>
+            <li><a href="../contents.htm">Contents</a></li>
+            <li><a href="../faqs.htm">FAQs</a></li>
+            <li><a href="../videos.htm">Videos & Slides</a></li>
+                        <li><a href="https://secure.mybookorders.com/Orderpage/1402">Buy the Book!</a></li>
+            <li><a class="active" href="../contact.htm">Contact</a></li>
+          </ul>
+        </div>
+
+    	<div class="section-about">
+
+<h1>Application Challenge: Sequencing</h1>
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question"><a name="metrics"></a>What are assembly metrics?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Below we list some of many metrics for analyzing assembly quality.</p>
+
+				<p><br></p>
+
+				<p><b>N50 statistic:</b> N50 is a statistic that is used to measure the quality of an assembly. N50 is defined as the maximal contig length for which all contigs greater than or equal to that length comprise at least half of the sum of the lengths of all the contigs. For example, consider the five toy contigs with the following lengths: [10, 20, 30, 60, 70]. Here, the total length of contigs is 190, and contigs of length 60 and 70 account for at least 50% of the total length of contigs (60 + 70 = 130), but the contig of length 70 does not account for 50% of the total length of contigs. Thus, N50 is equal to 60.</p>
+
+				<p><br></p>
+
+				<p><b>NG50 statistic:</b> The NG50 length is a modified version of N50 that is defined when the length of the genome is known (or can be estimated). It is defined as the maximal contig length for which all contigs of at least that length comprise at least half of the length of the genome. NG50 allows for meaningful comparisons between different assemblies for the same genome. For example, consider the five toy contigs that we considered previously: [10, 20, 30, 60, 70]. These contigs only add to 190 nucleotides, but say that we know that the genome from which they have been generated has length 300. In this example, the contigs of length 30, 60, and 70 account for at least 50% of the genome length (30 + 60 + 70 = 160); but the contigs of length 60 and 70 no longer account for at least 50% of the genome length (60 + 70 = 130). Thus, NG50 is equal to 30.</p>
+
+				<p><br></p>
+
+				<p><b>NGA50 statistic:</b> If we know a reference genome for a species, then we can test the accuracy of a newly assembled genome against this reference. The NGA50 statistic is a modified version of NG50 accounting for assembly errors (called <b>misassemblies</b>). To compute NGA50, errors in the contigs are accounted for by comparing contigs to a reference genome. All of the misassembled contigs are broken at <b>misassembly breakpoints</b>, resulting in a larger number of contigs with the same total length. For example, if there is a missasembly breakpoint at position 10 in a contig of length 30, this contig will be broken into contigs of length 10 and 20.</p>
+
+				<p><br></p>
+
+				NGA50 is calculated as the NG50 statistic for the set of contigs resulting after breaking at misassembly breakpoints. For example, consider our previous example, for which the genome length is 300. If the largest contig in [10, 20, 30, 60, 70] is broken into two contigs of length 20 and 50 (resulting in the set of contigs [10, 20, 20, 30, 50, 60]), then. contigs of length 20, 30, 50, and 60 account for at least 50% of the genome length (20 + 30 + 50 + 60 = 160). But contigs of length 30, 50, and 60 do not account for at least 50% of the genome length (30 + 50 + 60 = 140). Thus, NGA50 is equal to 20.
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question"><a name="16S_rRNA"></a>What is 16S rRNA?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>When we studied the origins of SARS, we described sequencing 18S rRNA to analyze insect evolution. However, biologists studying bacterial genomes usually sequence 16S ribosomal RNA (16S rRNA) that plays an important role in protein biosynthesis as a key element of the prokaryotic ribosomes. Since 16S rRNA is highly conserved between various species of bacteria and archaea, it is widely used in phylogenetic studies. In addition to highly conserved sites, 16S rRNA gene sequences contain hypervariable regions that can provide species-specific signature sequences useful for identification of bacterial strains and species. As a result, 16S rRNA sequencing has become prevalent in medical microbiology as a rapid and cheap alternative to phenotypic methods of bacterial identification. Although it was originally used to identify bacteria, 16S sequencing was subsequently found to be capable of reclassifying bacteria into completely new species, or even genera. It has also been used to describe new species that have never been successfully cultured.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question"><a name="pathogenic_ecoli"></a>How do we classify pathogenic <i>E. coli</i> strains?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Pathogenic <i>E. coli</i> strains can be classified based on their virulence properties.</p>
+
+				<p><br></p>
+
+				<p><b>Enterotoxigenic <i>E. coli</i> (ETEC)</b> strains produce two enterotoxins - heat-stable (ST) and heat-labile (LT), which is similar to cholera toxin in structure and function. ETEC strains are the most common cause of traveler's diarrhea (caused by contaminated food or water) and are the leading cause of diarrhea in children in the developing world.</p>
+
+				<p><br></p>
+
+				<p><b>Enteroaggregative <i>E. coli</i> (EAEC)</b> strains have as many as a thousand <b>fimbriae</b>, thin and short appendages composed of curlin proteins. They use fimbriae to adhere to one another and to animal cells. EAEC strains aggressively colonize the gastrointestinal mucosa.</p>
+
+				<p><br></p>
+
+				<p><b>Enterohemorrhagic <i>E. coli</i> (EHEC)</b> strains produce Shiga toxin, which can cause bloody diarrhea and lead to HUS. Common EHEC strains can be detected by a sorbitol test.</p>
+
+				<p><br></p>
+
+				<p>Different strains can also harbor plasmids or phage elements, which can give them the ability to resist different types of antibiotics.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question"><a name="sequence_quality"></a>How do we assess sequence quality?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>FastQC allows you to check whether your read dataset has any problems before doing further analysis. To give you a hint of what the data may look like, here are two examples of FastQC output:</p>
+
+				<p><br></p>
+
+				<ul>
+					<li>High quality read dataset: <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html" target="_blank">www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html</a></li>
+					<li>Poor-quality read dataset: <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html" target="_blank">www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html</a></li>
+				</ul>
+
+				<p>You can run FastQC on your TY2482 dataset and answer various questions, such as: “What is the GC-content of the reads?” (50.53) or “How many read-pairs are there in the entire TY2482 dataset?” (5,102,041)</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Question here</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				Answer here
+			</div>
+		</div>
+	</div>
+</div>
+-->
+
+
+
+		</div>
+	</div>
+  <div id="footer" class="container_24 clearfix">
+          <div class="footer-links">
+     <img style="float: left;" src="/../images/alp_logo.png" alt="Active Learning Publishers" height="50" />  <a style="float: right;" href="http://rosalind.info/problems/list-view/?location=bioinformatics-textbook-track" target="_blank"><img style="padding:10px;"  src="/images/rosalind_logo_white.png" alt="Rosalind" height="50" /></a>
+     &#169; 2018 by Phillip Compeau &amp; Pavel Pevzner | All Rights Reserved<br>
+      ISBN: 978-0-9903746-3-3<br>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

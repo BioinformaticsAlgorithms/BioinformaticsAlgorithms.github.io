@@ -1,1 +1,587 @@
-<meta http-equiv="Refresh" content="0; url=http://bioinformaticsalgorithms.org" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<!-- Mobile Redirect -->
+<script src="http://static.dudamobile.com/DM_redirect.js" type="text/javascript"></script>
+<script type="text/javascript">DM_redirect("http://m.bioinformaticsalgorithms.com");</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FAQs | Chapter 3 | How Do We Assemble Genomes? </title>
+<link rel="stylesheet" type="/text/css" href="../Styles/960_24_col.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/reset.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/text.css" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51449831-1', 'bioinformaticsalgorithms.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- Needed for JQuery in order to have expandable FAQs -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<!-- JQuery Javascript code -->
+<script>
+ $(document).ready(function() {
+
+	$('.faq_question').click(function() {
+
+		if ($(this).parent().is('.open')){
+			$(this).closest('.faq').find('.faq_answer_container').animate({'height':'0'},500);
+			$(this).closest('.faq').removeClass('open');
+
+			}else{
+				var newHeight =$(this).closest('.faq').find('.faq_answer').height() +'px';
+				$(this).closest('.faq').find('.faq_answer_container').animate({'height':newHeight},500);
+				$(this).closest('.faq').addClass('open');
+			}
+
+	});
+
+});
+</script>
+
+</head>
+
+<body>
+
+    <div id="content" class="container_24 clearfix">
+      <div class="main-content">
+        <div class="header-img">
+          <img src="../images/header-img.jpg" alt="Bioinformatics Algorithms: An Active Learning Approach" width="960" height="330" />
+        </div>
+        <div class="nav">
+          <ul>
+            <li><a href="../index.htm">Home</a></li>
+            <li><a href="../about-the-author.htm">Authors</a></li>
+            <li><a href="../contents.htm">Contents</a></li>
+            <li><a href="../faqs.htm">FAQs</a></li>
+            <li><a href="../videos.htm">Videos & Slides</a></li>
+                        <li><a href="https://secure.mybookorders.com/Orderpage/1402">Buy the Book!</a></li>
+            <li><a class="active" href="../contact.htm">Contact</a></li>
+          </ul>
+        </div>
+
+    	<div class="section-about">
+
+<h1>Chapter 3: How Do We Assemble Genomes?</h1>
+
+<h3><a name="week1"></a>(Coursera Week 1)</h3>
+
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How are reads generated?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p >In 1998, Shankar Balasubramanian and David Klenerman from Cambridge University's Chemistry Department developed a novel DNA sequencing method. Their approach would soon become the most popular sequencing technology in the world.</p>
+
+				<p><br></p>
+
+				<p>The main idea of their method is simple; during DNA replication, we can add nucleotides with different fluorescent labels, detect the light emitted, and determine which nucleotide was attached.</p>
+
+				<p><br></p>
+
+				<p>This workflow is described as follows. (Figures in this FAQ are taken from an excellent primer on sequencing technologies, <a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18576944">Mardis 2008</a>. You may wish to consult her paper for additional details.)</p>
+
+
+
+<p><br></p>
+
+<ul>
+<li>The DNA is chopped up into smaller fragments that are modified by adding <strong> adapters</strong> to each end (figure below, left) - short, synthetic fragments of DNA.</li>
+
+<li>One end of each modified DNA fragment is anchored on the surface of a chip called a <strong>flow cell</strong> (figure below, right). The flow cell is covered by <strong>primers</strong>, which are short sequences that are complementary to the adapters.</li>
+</ul>
+
+<p><br></p>
+
+<figure><center><img src="../images/Assembly/flow_cell.png" width="85%"></center></figure>
+
+<p><br></p>
+
+<ul>
+<li> The instrument cannot detect signal from a single molecule, so we need to obtain multiple copies of each DNA fragment, located in a particular place on the flow cell surface. The free ends of adapters that have been anchored will bend and hybridize to nearby complementary primers. If we just add nucleotides and DNA polymerase, DNA replication will begin, extending from the primer around the arch to the adapter on the opposite end of the modified DNA fragment. The arching double strands of DNA look like bridges, so this process is called <strong>bridge amplification</strong> (figure below, left).</li>
+
+<li>In a <b>denaturation</b> step, we cleave the two strands of DNA joined in each bridge.  As a result, we have twice the amount of single-stranded DNA that we began with (see figure below, right).
+
+<figure><center><img src="../images/Assembly/amplification.png" width="85%"></center></figure>
+
+<li>After the first round of bridge amplification we have two copies of the molecule, attached nearby. We then repeat this process several times; after each round, the number of copies doubles, resulting in a large number of identical DNA fragments located near each other and forming <b>clusters</b>. This process occurs across the whole flow cell, and so we obtain a large number of these clusters on the cell surface, as shown below.
+</li>
+
+<p><br></p>
+
+<figure><center><img src="../images/Assembly/clusters.png" width="25%"></center></figure>
+
+<p><br></p>
+
+
+<li>We can then cut one end of the bridges using a <strong>restriction enzyme</strong>, and all the reverse strands will be washed off the flow cell, leaving only forward strands attached. This process occurs across the whole flow cell.</li>
+</ul>
+
+<ul>
+<li>Then we start sequencing itself. Primers are added, and fluorescently tagged nucleotides called <b>reversible terminators</b> are added to the cell to base pair with single strands. Each of the four bases emits its own color when a laser is fired at the DNA, so we take a photo of the flow cell, which tells us which nucleotide is being incorporated at each spot in each cycle. Following the incorporation step, an enzyme cleaves off the fluorescent dye, unused nucleotides and DNA polymerase molecules are washed away, and nucleotides are added in order to base pair with the next nucleotide down on each strand and begin the imaging process again. You can see an animation of this process at the following video.</li>
+</ul>
+
+<p><br></p>
+
+<center><iframe width="640" height="360" src="https://www.youtube.com/embed/tuD-ST5B3QA?start=62" frameborder="0" allowfullscreen></iframe></center>
+
+<p><br></p>
+
+<uL>
+<li>With each cycle of sequencing, there is signal decay and molecules in the cluster that fall behind or jump ahead in the synthesis process, leading to higher noise. This explains why we cannot read long DNA fragments.</li>
+</ul>
+
+<p><br></p>
+
+<figure><center><img src="../images/Assembly/chemistry_cycle.png" width="85%"></center></figure>
+
+
+
+<p><br></p>
+
+<p>For a video illustrating this process, please watch the following video produced by Illumina.
+
+<p><br></p>
+
+<p><center><iframe width="640" height="360" src="https://www.youtube.com/embed/HMyCqWhwB8E" frameborder="0" allowfullscreen></iframe></center></p>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Can we construct the overlap graph by considering overlaps of <i>k</i>-2 rather than <i>k</i>-1 symbols?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Yes, but the resulting overlap graph may potentially have more edges. In  practice, edges in an overlap graph are formed by pairs of reads that overlap significantly but not perfectly (in order to account for errors in the reads).
+</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Does it matter which order we choose to glue nodes in the de Bruijn graph?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>No. In practice, we won't actually glue the nodes; instead, we will simply create a node for each distinct prefix and suffix that appear in our <i>k</i>-mers.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<h3><a name="week1"></a>(Coursera Week 2)</h3>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How can we implement an algorithm for finding Eulerian cycles in linear time? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Check out pages 39-41 of <a href="https://books.google.com/books?id=NvuFAglxaJkC&lpg=PA39&ots=GLw1XLL6rn&dq=%22the%20algorithm%20of%20hierholzer%22&pg=PA39#v=onepage&q&f=false" target="_blank"><i>Graphs, Networks, and Algorithms</i></a>, by Dieter Jungnickel.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why do we only remove small bubbles in the de Bruijn graph?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>In Fig. 3.39 (bottom), reproduced below, we remove only small bubbles to leave the colored path. Removing large bubbles is dangerous because it may lead to removal of paths representing fragments of a genome rather than erroneous reads.</p>
+
+				<p><br></p>
+
+				<figure><center><img src="../images/Assembly/many_bubbles.png" width="60%"></center></figure>
+
+				<p><br></p>
+
+				<p>A single error in a read results in a bubble of length <i>k</i> in a de Bruijn graph constructed from <i>k</i>-mers. Multiple errors in various reads may form longer bubbles, but since the error rate in reads is rather small (less than 1% per nucleotide in Illumina reads), most bubbles are small.
+</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Can I see a detailed example of how to find an Eulerian cycle in terms of the adjacency list?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Consider the adjacency list of a small graph with ten nodes and twelve edges shown below.</p>
+
+<p><br></p>
+
+<pre>0 → 3
+1 → 0
+2 → 1, 6
+3 → 2
+4 → 2
+5 → 4
+6 → 5, 8
+7 → 9
+8 → 7
+9 → 6</pre>
+
+<p>Start at any node (say, node 0) and walk aimlessly in the graph by taking the first unused edge at each node you encounter until there are no more unused edges.  For example:</p>
+
+<p><br></p>
+
+<pre>0 → 3 → 2 → 1 → 0</pre>
+
+<p>Since we haven't  traversed all of the edges yet, there exists at least one node in this cycle with still unused edges; in this case, that node is node 2.  We therefore rearrange the cycle so that it starts and ends at node 2 instead of node 0: </p>
+
+<p><br></p>
+
+<pre>2 → 1 → 0 → 3 → 2</pre>
+
+<p>After traversing this cycle, start walking again, taking the first untraversed edge at each node until there are no more untraversed edges available.</p>
+
+<p><br></p>
+
+<pre>2 → 1 → 0 → 3 → 2 → 6 → 5 → 4 → 2</pre>
+
+<p>Since we haven't traversed all of the edges yet, there exists a node in the constructed cycle (node 6) with still untraversed edges.  We rewrite the cycle so that it starts and ends at node 6 instead of node 2: </p>
+
+<p><br></p>
+
+<pre>6 → 5 → 4 → 2 → 1 → 0 → 3 → 2 → 6</pre>
+
+<p>After traversing this cycle, start walking again, taking the first untraversed edge at each node until there are no more untraversed edges available.</p>
+
+<p><br></p>
+
+<pre>6 → 5 → 4 → 2 → 1 → 0 → 3 → 2 → 6 → 8 → 7 → 9 → 6</pre>
+
+<p>Since all of the edges in our graph have been used, we have constructed an Eulerian cycle.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Are real de Bruijn graphs balanced and Eulerian?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>In reality, the situation is more complicated. Some parts of a genome may not be covered by any reads at all, resulting in de Bruijn graphs with unbalanced nodes. Also, while bacterial genomes typically consist of a single circular chromosome, eukaryotic genomes typically have multiple linear chromosomes. Even in the case of perfect coverage by reads, ends of linear chromosomes result in unbalanced nodes. Existing assembly tools successfully address this applications by finding contigs in de Bruijn graphs, which they then combine into scaffolds using paired reads.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">If there are multiple Eulerian paths, how can we determine which one is correct?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Biologists sometimes perform additional experiments that allow them to stitch together contigs and to identify which Eulerian path corresponds to the genome. For example, the companies <a href="http://www.10xgenomics.com" target="_blank">10X Genomics</a>, <a href="http://dovetailgenomics.com" target="_blank">Dovetail Genomics</a>, and <a href="http://www.phasegenomics.com" target="_blank">Phase Genomics</a> generate various types of additional data to assist the assembly. However, since these additional experiments remain time-consuming, most genomes are stored in databases as contigs.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">In the case when some regions of a genome have no read coverage, is it sufficient to find an Eulerian path in each connected component of the de Bruijn graph?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>No.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Since using too small a value of <i>k</i> results in a tangled de Bruijn graph, and using too large a value of <i>k</i> results in a fragmented de Bruijn graph, how do biologists select the <i>k</i>-mer length in practice?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Researchers could compare assemblies for a variety of values of <i>k</i>, and then attempt to identify the highest-quality assembly.  However, this process is very time-consuming. Moreover, there is no "optimal" value of <i>k</i>, as different regions of the genome may have differing best choices of <i>k</i>.  To address this conundrum, many modern assemblers use an <b>iterative de Bruijn graph</b> approach that integrates de Bruijn graphs for various values of <i>k</i> into a single graph. See <a href="http://dx.doi.org/10.1007/978-3-642-12683-3_28" target="_blank">Peng et al., 2010</a> for details.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">What is the typical size of a gap in real read-pairs?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Biologists have a lot of freedom in selecting the gap size <em>d</em> in order to optimize genome assembly quality. For example, in many  sequencing projects with Illumina reads, the read length is about 300  nucleotides and the gap length is about 200 nucleotides. However, it is  becoming more and more common to generate read-pairs with large gap sizes (e.g., 8,000 nucleotides) because, as explained in the main text, large gap sizes often result in better assemblies.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">We assumed that the distance between read-pairs was always equal to <em>d</em>.  Is this true?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>In practice, the distance between read-pairs is known only approximately.  Although it may seem that the paired de Bruijn graph would become  impractical in the case of imprecise distances between reads, recent  studies beyond the scope of this book have demonstrated how to adapt de Bruijn graphs in order to analyze inexact read-pair distances.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How does the concept of read breaking work for read-pairs?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Assuming that the distance between reads in a read-pair is fixed, say that we want to break them into shorter read-pairs separated by the same fixed  distance.  The example below illustrates breaking a (5, 2)-mer into three (3, 5)-mers:</p>
+
+<p><br></p>
+
+<pre>
+ACGTA---GCCTT
+ACG-----GCC
+ CGT-----CCT
+  GTA-----CTT</pre>
+
+<p>In general, any (<em>k, d</em>)-mer can be broken into <em>t</em>+1 (<em>k</em>-1, <em>d</em>+<em>t</em>)-mers.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How does real genome assembly software deal with information loss resulting from read breaking?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p> Some Eulerian paths in the de Bruijn graph constructed from <i>k</i>-mers after read breaking will be incompatible with the original reads.  Real assemblers  store information about the read that each <i>k</i>-mer comes from after read breaking.  This additional information limits analysis to Eulerian paths in de Bruijn graphs that are compatible with reads.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<p><br></p>
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How are paired reads generated?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>After obtaining traditional reads, we can add specific primers to the outer end of our DNA fragments, and they will attach to the primers on the cell surface, forming a bridge again.  Using a different restriction enzyme, we can cut another end of the “bridges”, releasing the “inner” end, causing the DNA fragment to flip over. (See figure below; source: <a href="http://www.slideshare.net/cosentia/illumina-gaiix-for-high-throughput-sequencing" target="_blank">Cristian Cosentino</a>)</p>
+
+<p><br></p>
+
+<figure><center><img src="../images/Assembly/paired_end_amplification.png" width="75%"></center></figure>
+
+<p><br></p>
+
+<p>We then repeat the sequencing procedure, resulting in <strong>reverse reads</strong>. As a result, we get a pair of reads – forward and reverse – which comes from the ends of the same DNA fragments, separated by gap of approximately known length, and oriented towards each other. Thus, we have a read pair.</p>
+
+<p><br></p>
+
+<p>The total length of a read pair (computed as the sum of lengths of both reads plus the length of the gap) is referred to as the <strong>insert size</strong> (for many applications, the insert size is equal to 500). It is very hard to sequence longer fragments – they start to wobble, complicating cluster generation and detection. Biologists have devoted a great deal of research into new approaches to overcome this problem.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How do biologists increase insert size?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>The larger the insert size, the greater the length of repeats that can be potentially resolved during assembly. However, the typical insert size for standard paired-end libraries is only 500 nucleotides, which is too small to resolve long repeats in bacterial, let alone eukaryotic, genomes. For example, <strong>ribosomal RNA clusters</strong> in bacteria are often longer than 6000 nucleotides and are typically repeated in the genome several times.</p>
+
+				<p><br></p>
+
+				<p>To resolve longer repeats, biologists often use another sample preparation technology referred to as <strong>mate-pair</strong> generation. Mate-pair sample preparation, which is illustrated in part b) of the figure below, differs from paired-end sample preparation, which is illustrated in part a) of the figure below, with respect to how the sequence library is made. (Figure adapted from <a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18576944">Mardis 2008</a>.)</p>
+
+<p><br></p>
+
+<figure><center><img src="../images/Assembly/mate_pair_preparation.png" width="75%"></center></figure>
+
+<p><strong>Figure:</strong> a) Paired end sequencing. b) Mate pair sequencing. "SP" denotes "sequencing  primer" (sequence initiation); "A" denotes "adapter" sequence (attaching DNA to surface).</p>
+
+<p><br></p>
+
+<p>DNA is fragmented into large segments; for example, the insert size is often 7 kbp (compared with the 500 bp in paired-end libraries). Afterwards, complementary adapters, containing a specific marker called <strong>biotin</strong>, are connected to the ends of the long DNA fragments. These adapters are then connected to each other, resulting in circular DNA molecules. The circularized fragments are then subjected to a second round of fragmentation (to 300-500bp), and only biotin-containing fragments are selected.  These fragments, representing two ends of the same molecule, connected by an adapter, are then used in a standard paired-end sequencing procedure. In a sense, the middle segment of the DNA has been discarded along the way (see figure below), and the ends are sequenced as in standard paired-end sequencing. As a result, we obtain a pair of reads from the ends of the long DNA fragment, oriented away from each other. </p>
+
+<p><br></p>
+
+<figure><center><img src="../images/Assembly/illumina_mate_pair.png" width="75%"></center></figure>
+
+<p><center><b>Figure:</b> Contrast of paired end and mate pair reads. Courtesy: <a href="http://www.slideshare.net/flxlex/assembly-before-and-after" target="_blank">Lex Nederbragt</a>.<center></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why do biologists use multiple libraries with various insert sizes to sequence genomes?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p> Many sequencing projects generate several libraries of paired reads with different insert sizes – e.g. 500, 3000, and 7000 nucleotides. The advantage of using multiple libraries is that libraries with small insert sizes are better suited for resolving short repeats, whereas libraries with larger insert sizes are better suited for resolving long repeats.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<!-- Moved to detour in third edition
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">We only saw how to assemble single-stranded DNA in the chapter. How do bioinformaticians assemble double-stranded DNA?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>To assemble real genomes, bioinformaticians must handle reads from both DNA strands without knowing in advance which strand each read comes from. To address this challenge, they first add the reverse complement of each read to the collection of reads, effectively doubling the number of reads. In an ideal world, the de Bruijn graph formed from all these reads would consist of two (topologically identical but differently labeled) connected components, one for each DNA strand (see figure below).</p>
+
+<p><br></p>
+
+
+<figure><center><img src="../images/Assembly/debruijn_graph_gatgtcata.png" width="50%"></center>
+</figure>
+
+<figure><center><img src="../images/Assembly/debruijn_graph_tatgacatc.png" width="50%"></center>
+</figure>
+
+<p><br></p>
+
+<p><strong>Figure:</strong> Reconstructing genomes <tt><font color="red">GATGTCATA</font></tt> and <tt><font color="blue">TATGACATC</font></tt> from their corresponding graphs <em>DeBruijn</em><sub>3</sub>(<tt><font color="red">GATGTCATA</font></tt>)and <em>DeBruijn</em><sub>3</sub>(<tt><font color="blue">TATGACATC</font></tt>) can be done easily, as there is only one way to traverse each graph.</p>
+
+<p><br></p>
+
+<p>In reality, these two components will be glued together, since there are many reverse complementary <em>k</em>-mers within a single strand in genomes. Indeed, in addition to direct repeats (like <tt>ATG</tt> in <tt><font color="red">GATGTATGA</font></tt>), genomes have many <strong>inverted repeats</strong>, in which one substring is the reverse complement of another (like <tt>ATG</tt>/<tt>CAT</tt> in <tt><font color="red">GATGTCATA</font></tt>). As a result, while the single strand <tt><font color="red">GATGTCATA</font></tt> has no repeated 3-mers, making its assembly trivial, the reverse complementary strands <tt><font color="red">GATGTCATA</font></tt> and <tt><font color="blue">TATGACATC</font></tt> have repeated 3-mers. The figure below shows the de Bruijn graph for the reverse complementary strings <tt><font color="red">GATGTCATA</font></tt> and <tt><font color="blue">TATGACATC</font></tt>, which requires gluing nodes from two different strings, thus complicating assembly.</p>
+
+<p><br></p>
+
+<figure><center><img src="../images/Assembly/debruijn_graph_two_strands.png" width = "50%"></center></figure>
+
+<p><br></p>
+
+<p><strong>Figure:</strong> The de Bruijn graph formed by combining 3-mers from <tt><font color="red">GATGTCATA</font></tt> and its reverse complement <tt><font color="blue">TATGACATC</font></tt>. Reconstructing the original genome is now a nontrivial problem.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+-->
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How do modern assemblers distinguish bubbles caused by sequencing errors (which should be removed) from bubbles caused by variations in repeats (which should be retained)?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>The figure in the text shows a bubble caused by an error in a read <tt>CGTA<font color="blue">C</font>GGACA</tt> from the region <tt>ATGCCGTA<font color="red">T</font>GGACAACGACT</tt>.</p>
+
+				<p><br></p>
+
+				<pre><center>ATGCCGTA<font color="red">T</font>GGACAACGACT
+CGTA<font color="blue">C</font>GGACA  </center></pre>
+
+				However, the same bubble would appear in the de Bruijn graph if the region <tt>ATGCCGTATGGACAACGACT</tt> were repeated twice in the genome with a single mutation:
+
+<p><br></p>
+
+<p><center><tt>ATGCCGTA<font color="blue">T</font>GGACAACGACT<font color="gray">ACTGGTGAGGCCTAG</font>ATGCCGTA<font color="red">C</font>GGACAACGACT</tt></center></p>
+
+<p><br></p>
+
+<p>We distinguish these types of bubbles by calling the former an <b>error bubble</b> and the latter a <b>repeat bubble</b>.</p>
+
+<p><br></p>
+
+<p>Fortunately, because the error rate is small, there are typically only a few reads corresponding to an error bubble, but many more reads corresponding to a repeat bubble. As a result, biologists classify bubbles with low coverage as error bubbles. Unfortunately, the predictive power of this simple test decreases in sequencing projects for which coverage of some regions may be low, such as in single-cell sequencing projects, in which the coverage greatly fluctuates along the length of the genome. </p>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Question here</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				Answer here
+			</div>
+		</div>
+	</div>
+</div>
+-->
+
+		</div>
+	</div>
+  <div id="footer" class="container_24 clearfix">
+          <div class="footer-links">
+     <img style="float: left;" src="/../images/alp_logo.png" alt="Active Learning Publishers" height="50" />  <a style="float: right;" href="http://rosalind.info/problems/list-view/?location=bioinformatics-textbook-track" target="_blank"><img style="padding:10px;"  src="/images/rosalind_logo_white.png" alt="Rosalind" height="50" /></a>
+     &#169; 2018 by Phillip Compeau &amp; Pavel Pevzner | All Rights Reserved<br>
+      ISBN: 978-0-9903746-3-3<br>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

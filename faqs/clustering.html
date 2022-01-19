@@ -1,1 +1,487 @@
-<meta http-equiv="Refresh" content="0; url=http://bioinformaticsalgorithms.org" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<!-- Mobile Redirect -->
+<script src="http://static.dudamobile.com/DM_redirect.js" type="text/javascript"></script>
+<script type="text/javascript">DM_redirect("http://m.bioinformaticsalgorithms.com");</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FAQs | Chapter 8 | How Did Yeast Become a Wine-Maker? </title>
+<link rel="stylesheet" type="/text/css" href="../Styles/960_24_col.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/reset.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/text.css" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51449831-1', 'bioinformaticsalgorithms.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- Needed for JQuery in order to have expandable FAQs -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<!-- JQuery Javascript code -->
+<script>
+ $(document).ready(function() {
+
+	$('.faq_question').click(function() {
+
+		if ($(this).parent().is('.open')){
+			$(this).closest('.faq').find('.faq_answer_container').animate({'height':'0'},500);
+			$(this).closest('.faq').removeClass('open');
+
+			}else{
+				var newHeight =$(this).closest('.faq').find('.faq_answer').height() +'px';
+				$(this).closest('.faq').find('.faq_answer_container').animate({'height':newHeight},500);
+				$(this).closest('.faq').addClass('open');
+			}
+
+	});
+
+});
+</script>
+
+</head>
+
+<body>
+
+    <div id="content" class="container_24 clearfix">
+      <div class="main-content">
+        <div class="header-img">
+          <img src="../images/header-img.jpg" alt="Bioinformatics Algorithms: An Active Learning Approach" width="960" height="330" />
+        </div>
+        <div class="nav">
+          <ul>
+            <li><a href="../index.htm">Home</a></li>
+            <li><a href="../about-the-author.htm">Authors</a></li>
+            <li><a href="../contents.htm">Contents</a></li>
+            <li><a href="../faqs.htm">FAQs</a></li>
+            <li><a href="../videos.htm">Videos & Slides</a></li>
+                        <li><a href="https://secure.mybookorders.com/Orderpage/1402">Buy the Book!</a></li>
+            <li><a class="active" href="../contact.htm">Contact</a></li>
+          </ul>
+        </div>
+
+    	<div class="section-about">
+
+<h1>Chapter 8: How Did Yeast Become a Wine-Maker?</h1>
+
+<h3><a name="week1"></a>(Coursera Week 1)</h3>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How do biologists visualize gene expression matrices?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>To make sense of a gene expression matrix, biologists often rearrange its genes so that similar expression vectors correspond to consecutive rows in the gene expression matrix. Then, they often assign colors to each element of the gene expression matrix according to their expression levels, resulting in a <strong>heatmap</strong> (shown below).</p>
+
+<p><br></p>
+
+<figure><center><img src="../images/Clustering/heatmap.png" width="60%" title="gene expression heatmap"></center></figure>
+
+<p><strong>Figure:</strong> The heatmap of a gene expression matrix. The rows and columns of the gene expression matrix are ordered according to the order of leaves constructed using hierarchical clustering.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why do we use the logarithms of expression values rather than the expression values themselves?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Before clustering even starts, biologists have to decide how to represent expression vectors in multi-dimensional space. Some representations may result in better clustering outcomes than others (see the FAQ on how scaling the input data affects clustering). It turns out that taking logarithms results in better clustering, but there is no good theoretical justification for this observation. </p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why are we interested in analyzing genes whose expression significantly <i>decreases</i> during the course of an experiment?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>We are interested in all genes that may be implicated in the diauxic shift. If the expression of a gene decreases during the diauxic shift, then chances are it is still relevant to the diauxic shift. For example, the gene may have to be repressed in order to enable the diauxic shift.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How do we solve the <i>k</i>-center clustering problem for <i>k</i> = 1? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>The 1-center clustering problem is also known as the <b>Minimum Covering Sphere Problem:</b> given a set of <i>n</i> data points in <i>m</i>-dimensional space, find an <i>m</i>-dimensional sphere of minimum area containing all these points. In the case of two-dimensional space, the corresponding Minimum Covering "Circle" Problem can be solved in O(<i>n</i><sup>4</sup>) time by considering all triplets of points and capitalizing on the observation that the minimum covering circle for a set of data points is determined by either two points (which represent a diameter of the circle) or three points lying on the boundary of the circle. Thus, we can explore all triples of points. Since checking whether a circle formed by this triple contains all data points takes O(<i>n</i>) time, and we need to check O(<i>n</i><sup>3</sup>) triples, the running time of this algorithm is O(<i>n</i><sup>4</sup>).</p>
+
+            <p><br></p>
+
+            <p>There exists a faster linear time algorithm for solving the Minimum Covering Sphere Problem, proposed in <a href="https://doi.org/10.1137/0212052" target="_blank">N. Megiddo. Linear-time algorithms for linear programming in R<sup>3</sup> and related problems. <i>SIAM J. on Computing</i>, 12: 759–776 (1983).</a></p>
+            </div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Can I modify <b>FarthestFirstTraversal</b> to solve the <em>k</em>-Means Clustering Problem?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Yes. Simply substitute <em>d</em>(<em>DataPoint</em>, <em>Centers</em>) by <em>Distortion</em>(<em>DataPoint</em>, <em>Centers</em>) in the psesudocode for <strong>FarthestFirstTraversal</strong>.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Are there measures in addition to the squared error distortion for evaluating clustering quality?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>The <b>silhouette value</b> is a popular approach for evaluating the quality of clustering. For each point <i>DataPoint</i>, define <i>ClusterDistance</i>(<i>DataPoint</i>) as the average distance between this point and all other points within the same cluster. We also define <i>Distance</i>(<i>DataPoint</i>, <i>Cluster</i>) as the average of the distances from <i>DataPoint</i> to all points in <i>Cluster</i>. The cluster with the minimum distance from a data point (among all clusters that do not contain <i>DataPoint</i>) is called the <b>neighboring cluster</b> for <i>DataPoint</i>. We refer to this distance as <i>NeighborDistance</i>(<i>DataPoint</i>). We define </p>
+
+                <p><br></p>
+
+                <p><center><i>Separation</i>(<i>DataPoint</i>) = <i>NeighborDistance</i>(<i>DataPoint</i>) - <i>ClusterDistance</i>(<i>DataPoint</i>)</center></p>
+
+                <p><br></p>
+
+                <p>The silhouette value <i>Silhouette</i>(<i>DataPoint</i>) is defined as follows:</p>
+
+                <p><br></p>
+
+                <p><center><i>Silhouette</i>(<i>DataPoint</i>) = <i>Separation</i>(<i>DataPoint</i>)/max(<i>NeighborDistance</i>(<i>DataPoint</i>), <i>ClusterDistance</i>(<i>DataPoint</i>)).</center></p>
+
+                <p><br></p>
+
+                <p>The silhouette value ranges from −1 to +1 and measures how similar a data point is to its own cluster compared to other clusters. A high silhouette value indicates that the data point is well matched to its own cluster and poorly matched to neighboring clusters. If most data points have a high silhouette value, then the clustering is adequate. If many data points have low silhouette values, then the clustering configuration may have too many or too few clusters. The average silhouette value over all data points is a measure of how well the data have been clustered.</p>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">If outliers present so many challenges for clustering, why don’t we simply remove outliers before running clustering algorithms? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>To remove outliers, we must first define what we mean by an outlier. It turns out that outlier detection is related to clustering, and so it is not easy to define what an outlier is without clustering! In fact, a common approach to defining outliers is to apply the Lloyd algorithm and list as outliers the top <i>m</i> points that are the farthest away from their nearest cluster centers. However, the Lloyd algorithm itself is sensitive to outliers, and such outliers may have an impact on the clusters that this algorithm constructs. :) Moreover, some outliers may form small tight clusters (e.g., clusters consisting of two data points) that will not be removed by the described procedure. An attempt to remove all small clusters as outliers is also risky, since some small clusters may represent a feature of a dataset rather than an artifact caused by outliers.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How do biologists select the value of <i>k</i> in <i>k</i>-means clustering?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Biologists sometimes use the silhouette analysis to select the value of <i>k</i> (see the previous FAQ on alternate metrics of cluster quality). For example, compute the average silhouette values for <i>k</i> ranging from 1 to some max value and find the maximum silhouette value in this range, and select the associated value of <i>k</i>.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">What is the running time of the Lloyd algorithm?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>The running time of the Lloyd algorithm is proportional to the number of iterations that it requires. Furthermore, each iteration requires O(<i>n</i>*<i>k</i>) distance computations between all data points and all centers, where <i>n</i> is the number of data points and <i>k</i> is the number of centers. </p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Can the Lloyd algorithm for <em>k</em>-means clustering start from <em>k</em> centers and end up with fewer than <em>k</em> centers?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Yes, it may happen that one of the centers has no data points assigned to it, thus reducing the number of clusters.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Is it possible that two different clusters during the course of the Lloyd algorithm will have the same center of gravity?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p><p>Given a set of <em>k</em> centers in multi-dimensional space, its&nbsp;<strong>Voronoi diagram</strong><em>&nbsp;</em>is a partitioning of the space into <em>k</em> regions (called <strong>Voronoi cells</strong>), each containing exactly one center. A center's Voronoi cell consists of all points closer to that center than to any other. The figure below (source: <a href="https://en.wikipedia.org/wiki/Voronoi_diagram" target="_blank">https://en.wikipedia.org/wiki/Voronoi_diagram</a>) shows the Voronoi diagram of 20 centers.</p>
+
+                <p><br></p>
+
+                <p><center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Euclidean_Voronoi_diagram.svg/512px-Euclidean_Voronoi_diagram.svg.png"></center></p>
+
+                <p><br></p>
+
+                <p>For a given center, the Centers to Clusters step of the Lloyd algorithm forms a cluster technically containing all data points in its Voronoi cell. Note that since all points in a cluster are located within a single Voronoi cell, its center of gravity is also located within the same Voronoi cell. Thus, since all Voronoi cells are different, all centers of gravity constructed by the Lloyd algorithm are different.&nbsp;</p></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Isn’t k-means++Initializer rather slow? And why is it better at initializing data points than FarthestFirstTraversal?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p><b>k-means++Initializer</b> requires O(<i>n</i>*<i>k</i>) distance computations, where <i>n</i> is the number of data points and <i>k</i> is the number of centers. It therefore results in roughly the same running time as a single iteration of the Lloyd algorithm.</p>
+
+                <p><br></p>
+
+                <p>Since <strong>FarthestFirstTraversal</strong> is a deterministic algorithm, its results are defined by selecting the first center (up to tie resolution). Thus, the number of possible initializations is limited by the number of data points. This may present a limitation if we want to run the Lloyd algorithm many times and select the best solution.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How many partitions of a set of points into <em>k</em> clusters are there?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Let {<i>n</i>, <i>k</i>} denote the number of partitions of <em>n</em> points into <em>k</em> clusters.  We will establish a recurrence relation to compute {<em>n</em>, <em>k</em>}.  To do so, select an arbitrary point <em>x</em>, and note that there are two possibilities.  First, <em>x</em> could belong to a cluster all by itself. In this case, the remaining points form <em>k</em> - 1 clusters, and we know that there are {<em>n</em>-1, <em>k</em>-1} ways to partition them.  Second, <em>x</em> could belong to a cluster with other points.  In this case, there are {<em>n</em>-1, <em>k</em>} ways to partition the other points into <em>k</em> clusters, and then there are <em>k</em> different choices for the cluster to which <em>x</em> belongs.</p>
+
+<p><br></p>
+
+<p>Combining these two cases results in the following recurrence relation for all <em>n</em> &gt; 1 and all <em>k</em> satisfying <em></em>1 &lt; <em>k</em> &lt; <em>n</em>:</p>
+
+<p><br></p>
+
+<p><center>{<em>n</em>, <em>k</em>} = {<em>n</em>-1, <em>k</em>-1} + <em>k</em> · {<em>n</em>-1, <em>k</em>}</center></p>
+
+<p><br></p>
+
+<p>As for a base case, note that {<em>n</em>, 1} = 1 for all <em>n </em><span style="font-family: CMSY10; font-size: 10pt;">≥ </span>1 because there is only one way to partition <em>n</em> points into a single cluster.  By the same reasoning, {<em>n, n</em>} = 1 for all <em></em><em>n </em><span style="font-family: CMSY10; font-size: 10pt;">≥ </span>1.</p>
+
+<p><br></p>
+
+<p><font color="purple"><strong>Exercise Break:</strong></font> Find a formula for {<em>n, </em>2} in terms of <em>n</em>.</p>
+
+<p><br></p>
+
+<p>The numbers {<em>n</em>, <em>k</em>} are called <strong>Stirling numbers of the second kind</strong>.
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">What is the dot product? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Given two vectors <i>a</i> = (<i>a</i><sub>1</sub>, …, <i>a</i><sub><i>n</i></sub>) and <i>b</i> = (<i>b</i><sub>1</sub>, …, <i>b</i><sub><i>n</i></sub>), their <b>dot product</b> is defined as the sum of pairwise products of their elements:</p>
+
+<p><br></p>
+
+<p><center><i>a</i>·<i>b</i> = Σ<sup><i>n</i></sup><sub><i>i</i>=1</sub> <i>a</i><sub><i>i</i></sub>·<i>b</i><sub><i>i</i></sub> = <i>a</i><sub>1</sub> · <i>b</i><sub>1</sub> + <i>a</i><sub>2</sub> · <i>b</i><sub>2</sub> + ... + <i>a</i><sub><i>n</i></sub> · <i>b</i><sub><i>n</i></sub> </center></p>
+
+<p><br></p>
+
+<p>Note that the two occurrences of the "·" symbol in this equation mean different things. On the left side, it represents the dot product of vectors, which we have just defined. On the right side, it indicates a normal product of two numbers <i>a</i><sub><i>i</i></sub> and <i>b</i><sub><i>i</i></sub>.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<h3><a name="week2"></a>(Coursera Week 2)</h3>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">If <em>HiddenVector</em> consists of all zeroes, the formula for computing <em>&theta;<sub>A</sub></em> in the section &ldquo;From Coin Flipping to <em>k</em>-Means Clustering&rdquo; does not work because we have to divide by 0. What should we do?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Since there is no information for estimating <em>&theta;<sub>A </sub></em>in this case, you can arbitrarily select <em>&theta;<sub>A</sub></em> as a random number in the interval from 0 to 1. Similarly, if <em>HiddenVector</em> consists of all ones, you can arbitrarily select <em>&theta;<sub>A &nbsp;</sub></em>as a random number in the interval from 0 to 1.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">We saw that the Lloyd algorithm does not necessarily converge to an optimal solution to the <i>k</i>-Means Clustering Problem. Does the <i>soft</i> <i>k</i>-means clustering algorithm converge to an optimal solution?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>No, not necessarily.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why is the soft clustering algorithm called "Expectation Maximization"?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>As explained in the sub-section "Where is the computational problem?", our goal is to find variables that <i>maximize</i> the probability of observing the data Pr(<em>Data</em>|<em>HiddenVector, Parameters</em>).</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Can we use k-means++Initializer for soft <i>k</i>-means clustering?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Of course, feel free to implement it! And it will likely improve your results. </p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How do we determine an appropriate stiffness parameter? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>As with many parametrized algorithms, you should experiment with various values (and check which ones makes sense) as there is no golden rule for determining the stiffness parameter.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">What is the stopping rule for the EM algorithm?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>In theory, the EM algorithm continues until <i>Parameters</i> cease to change. In practice, it is often stopped when the difference between respective values of <i>Parameters</i> in the previous iteration and the current iteration of the algorithm becomes small. Alternatively, the EM algorithm can be run for a fixed number of iterations.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How do we decide which horizontal line passing through the hierarchical clustering tree results in the best clustering?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">In the same way that we select the value of <i>k</i> in <i>k</i>-means clustering See the previous FAQ on how we select a value of <i>k</i> in <i>k</i>-means clustering.</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">In contrast to hierarchical clustering, the Lloyd algorithm is run for a fixed number of clusters <i>k</i>, and it is not clear how to select <i>k</i> in advance. Why would we ever select the Lloyd algorithm over hierarchical clustering?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Running time is one issue. The Lloyd algorithm requires O(<i>n</i>*<i>k</i>) comparisons, where <i>n</i> is the number of data points and <i>k</i> is the number of centers. In contrast, the hierarchical clustering algorithm requires  O(<i>n</i><sup>2</sup>) comparisons just to compute the distance matrix.</p>
+
+				<p><br></p>
+
+				<p>Also, since the Lloyd algorithm starts with randomly chosen cluster centers, it may yield different clustering results on different runs of the algorithm. Although this lacks consistency, it may have advantages since you can select the best result out of many initializations. With hierarchical clustering, you will obtain the same final tree each time you run the algorithm (up to breaking ties).</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How does scaling the dataset affect the result of clustering? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>Imagine that you want to cluster 1000 people by their height and weight, and suppose that you measure height in centimeters and weight in grams. In this case, one of your authors will be represented by a 2-dimensional point (185,&nbsp; 92137). Since we use the Euclidean distance, which accounts for the height and weight coordinates equally, the weight will dominate the outcome of our clustering algorithm. A better approach would be to represent weight in kilograms, resulting in the point (185, 92) after rounding, but how do we know what the best way is to scale the data?</p>
+
+            <p><br></p>
+
+            <p>A simple generalizable scaling method is based on the formula</p>
+
+            <p><br></p>
+
+            <p style="text-align: center;"><em>x&rsquo; =</em>&nbsp;(<em>x</em>-min(<em>x</em>))/(max(<em>x</em>)-min(<em>x</em>)).</p>
+
+            <p><br></p>
+
+            <p>For example, if the height of people in the sample varies from 160 to 200 centimeters, and the weight varies from 40 to 100 kilograms, then the data point (185,92) is rescaled as ((185-160)/40, (92-40)/60).</p></div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<!--
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Question here</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				Answer here
+			</div>
+		</div>
+	</div>
+</div>
+-->
+
+
+
+		</div>
+	</div>
+  <div id="footer" class="container_24 clearfix">
+          <div class="footer-links">
+     <img style="float: left;" src="/../images/alp_logo.png" alt="Active Learning Publishers" height="50" />  <a style="float: right;" href="http://rosalind.info/problems/list-view/?location=bioinformatics-textbook-track" target="_blank"><img style="padding:10px;"  src="/images/rosalind_logo_white.png" alt="Rosalind" height="50" /></a>
+     &#169; 2018 by Phillip Compeau &amp; Pavel Pevzner | All Rights Reserved<br>
+      ISBN: 978-0-9903746-3-3<br>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
