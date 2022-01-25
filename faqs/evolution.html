@@ -1,1 +1,218 @@
-<meta http-equiv="Refresh" content="0; url=http://bioinformaticsalgorithms.org" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<!-- Mobile Redirect -->
+<script src="http://static.dudamobile.com/DM_redirect.js" type="text/javascript"></script>
+<script type="text/javascript">DM_redirect("http://m.bioinformaticsalgorithms.com");</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FAQs | Chapter 7 | Which Animal Gave Us SARS? </title>
+<link rel="stylesheet" type="/text/css" href="../Styles/960_24_col.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/reset.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/text.css" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51449831-1', 'bioinformaticsalgorithms.com');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- Needed for JQuery in order to have expandable FAQs -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<!-- JQuery Javascript code -->
+<script>
+ $(document).ready(function() {
+
+	$('.faq_question').click(function() {
+
+		if ($(this).parent().is('.open')){
+			$(this).closest('.faq').find('.faq_answer_container').animate({'height':'0'},500);
+			$(this).closest('.faq').removeClass('open');
+
+			}else{
+				var newHeight =$(this).closest('.faq').find('.faq_answer').height() +'px';
+				$(this).closest('.faq').find('.faq_answer_container').animate({'height':newHeight},500);
+				$(this).closest('.faq').addClass('open');
+			}
+
+	});
+
+});
+</script>
+
+</head>
+
+<body>
+
+    <div id="content" class="container_24 clearfix">
+      <div class="main-content">
+        <div class="header-img">
+          <img src="../images/header-img.jpg" alt="Bioinformatics Algorithms: An Active Learning Approach" width="960" height="330" />
+        </div>
+        <div class="nav">
+          <ul>
+            <li><a href="../index.htm">Home</a></li>
+            <li><a href="../about-the-author.htm">Authors</a></li>
+            <li><a href="../contents.htm">Contents</a></li>
+            <li><a href="../faqs.htm">FAQs</a></li>
+            <li><a href="../videos.htm">Videos & Slides</a></li>
+                        <li><a href="https://secure.mybookorders.com/Orderpage/1402">Buy the Book!</a></li>
+            <li><a class="active" href="../contact.htm">Contact</a></li>
+          </ul>
+        </div>
+
+
+    	<div class="section-about">
+
+<h1>Chapter 7: Which Animal Gave Us SARS?</h1>
+
+<h3><a name="week1"></a>(Coursera Week 1)</h3>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How did the Spike protein get its name?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Viruses form spherical particles, and their viral envelopes are studded with many little "spikes" formed by viral proteins. For example, HIV particles are embedded into the viral envelope with 72 spikes formed by gp120 and gp41 proteins (see figure below).</p>
+
+<p><br></p>
+
+<figure><center><img src="../images/Evolution/HIV_virus.png" width="50%" title="Image: ../images/Evolution/HIV_virus.png"></center></figure>
+
+<p><center><strong>Figure: </strong>An HIV virus with spikes formed by gp120 and gp41 protein.</center></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How can I find the distance between two leaves in a tree?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>There are a number of different ways to find the distance between nodes <i>v</i> and <i>w</i>, but if you don’t want to write a new program, you can use the solution to the Longest Path in a DAG problem from the chapter on sequence alignment. To do so, construct a directed graph by starting with <i>v</i> and orienting the edge incident to <i>v</i> so that it points away from <i>v</i>. Then, walk outward in the tree, adding all edges to the directed graph so that they are oriented away from <i>v</i>. When you encounter <i>w</i>, stop adding edges. Then simply find the length of a longest path connecting <i>v</i> to <i>w</i>.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why does every tree with <em>n</em> nodes have exactly <em>n</em> − 1 edges?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Take an arbitrary leaf in a tree and delete it along with the edge incident to it. The number of nodes and edges in the resulting smaller tree have both been reduced by 1. Find a leaf in the resulting tree and remove it. The number of nodes and edges in the resulting (even smaller) tree has been reduced by 1 again. We iterate until we obtain a tree consisting of a single node (and no edges). Since we have removed the same number of nodes and edges during this iterative procedure, the number of nodes in the original tree exceeds the number of edges by 1.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Where should I add a new node to the tree <i>T</i> in <b>AdditivePhylogeny</b>?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>To add a new node at distance <i>x</i> from leaf <i>i</i> on the path between <i>i</i> and leaf <i>k</i>, we need to first construct the path from <i>i</i> to <i>k</i>.  If this path consists of edges <i>e</i><sub>1</sub>, <i>e</i><sub>2</sub>, … , <i>e</i><sub><i>t</i></sub> of lengths <i>l</i><sub>1</sub>, … , <i>l</i><sub><i>t</i></sub>, we will compute the length <i>length</i><sub><i>i</i></sub> of the first <i>i</i> edges in this path as <i>e</i><sub>1</sub> + <i>e</i><sub>2</sub> + … + <i>e</i><sub><i>i</i></sub>. As soon as <i>length</i><sub><i>i</i></sub> exceeds <i>x</i> (i.e., <i>length</i><sub><i>i</i>-1</sub> < <i>x</i> < <i>length</i><sub><i>i</i></sub>), we know that the new node should be added at distance <i>x</i> - <i>length</i><sub><i>i</i>-1</sub> from the start of the <i>i</i>-th edge.  It is also possible to attach a new node at an existing node, which is the subject of the next question.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Is it possible for the tree produced by <b>AdditivePhylogeny</b> to have a node of degree larger than 3?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Yes. This will happen precisely when the attachment point of a leaf occurs at an existing internal node.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<h3><a name="week2"></a>(Coursera Week 2)</h3>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Is it possible for <b>NeighborJoining</b> to produce a tree with a negative edge weight?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Yes. The neighbor-joining algorithm does sometimes assign negative edge weights when given a non-additive matrix.  However, for some other non-additive matrices, it produces a tree whose weights are all non-negative (such as the matrix below, which is non-additive, but whose neighbor-joining tree has exclusively positive weights).</p>
+
+<p><br></p>
+
+<figure><center><img src="../images/Evolution/nonadditive_distance_matrix.png" width="25%"></center></figure>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<h3><a name="week3"></a>(Coursera Week 3)</h3>
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How did 18S ribosomal RNA help resolve evolutionary controversies?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>The first large-scale attempt to reconstruct the phylogeny of the entire animal kingdom was based on analyzing 18S RNA (see figure below). Before this work, there were many controversies with respect to the evolutionary relationships between distantly related animals because comparative anatomy and embryology approaches are not very effective for resolving deep branches in animal evolution.</p>
+
+<p><br></p>
+
+<figure><center><img src="../images/Evolution/18S_RNA_phylogeny.png" width="40%"></center></p>
+
+<p><center><strong>Figure:</strong> The first evolutionary tree of the animal kingdom, constructed from 18S RNA.</center></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Question here</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				Answer here
+			</div>
+		</div>
+	</div>
+</div>
+-->
+
+
+
+		</div>
+	</div>
+  <div id="footer" class="container_24 clearfix">
+          <div class="footer-links">
+     <img style="float: left;" src="/../images/alp_logo.png" alt="Active Learning Publishers" height="50" />  <a style="float: right;" href="http://rosalind.info/problems/list-view/?location=bioinformatics-textbook-track" target="_blank"><img style="padding:10px;"  src="/images/rosalind_logo_white.png" alt="Rosalind" height="50" /></a>
+     &#169; 2018 by Phillip Compeau &amp; Pavel Pevzner | All Rights Reserved<br>
+      ISBN: 978-0-9903746-3-3<br>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

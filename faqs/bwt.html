@@ -1,1 +1,820 @@
-<meta http-equiv="Refresh" content="0; url=http://bioinformaticsalgorithms.org" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<!-- Mobile Redirect -->
+<script src="http://static.dudamobile.com/DM_redirect.js" type="text/javascript"></script>
+<script type="text/javascript">DM_redirect("http://m.bioinformaticsalgorithms.com");</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FAQs | Chapter 9 | How Do We Locate Disease-Causing Mutations? </title>
+<link rel="stylesheet" type="/text/css" href="../Styles/960_24_col.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/reset.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/text.css" />
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51449831-1', 'bioinformaticsalgorithms.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- Needed for JQuery in order to have expandable FAQs -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<!-- JQuery Javascript code -->
+<script>
+ $(document).ready(function() {
+
+	$('.faq_question').click(function() {
+
+		if ($(this).parent().is('.open')){
+			$(this).closest('.faq').find('.faq_answer_container').animate({'height':'0'},500);
+			$(this).closest('.faq').removeClass('open');
+
+			}else{
+				var newHeight =$(this).closest('.faq').find('.faq_answer').height() +'px';
+				$(this).closest('.faq').find('.faq_answer_container').animate({'height':newHeight},500);
+				$(this).closest('.faq').addClass('open');
+			}
+
+	});
+
+});
+</script>
+
+</head>
+
+<body>
+
+    <div id="content" class="container_24 clearfix">
+      <div class="main-content">
+        <div class="header-img">
+          <img src="../images/header-img.jpg" alt="Bioinformatics Algorithms: An Active Learning Approach" width="960" height="330" />
+        </div>
+        <div class="nav">
+          <ul>
+            <li><a href="../index.htm">Home</a></li>
+            <li><a href="../about-the-author.htm">Authors</a></li>
+            <li><a href="../contents.htm">Contents</a></li>
+            <li><a href="../faqs.htm">FAQs</a></li>
+            <li><a href="../videos.htm">Videos & Slides</a></li>
+                        <li><a href="https://secure.mybookorders.com/Orderpage/1402">Buy the Book!</a></li>
+            <li><a class="active" href="../contact.htm">Contact</a></li>
+          </ul>
+        </div>
+
+    	<div class="section-about">
+
+<h1>Chapter 9: How Do We Locate Disease-Causing Mutations?</h1>
+
+<h3><a name="week1"></a>(Coursera Week 1)</h3>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Does amalgamation of the reference human genome from various individuals cause problems? Can’t such amalgamation produce a phenotype that does not occur naturally?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Yes, the reference human genome is a mosaic of various genomes that does not match the genome of any individual human. Since various human genomes differ by only 0.1%, however, the amalgamation does not cause significant problems.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How does the repeated triplet <tt>"CAG"</tt> affect the severity of Huntington's disease?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Huntington's disease is a rare genetic disease in that it is attributable to a single gene, called <em>Huntingtin</em>. This gene includes a trinucleotide repeat <tt>"...CAGCAGCAG..."</tt> that varies in length.  Individuals with fewer than 26 copies of <tt>"CAG"</tt> in their <em>Huntingtin</em> gene are classified as unaffected by Huntington's disease, whereas individuals with more than 35 copies carry a large risk of the disease, and individuals with more than 40 copies will be afflicted.  Moreover, an unaffected person can pass the disease to a child if the normal gene mutates and increases the repeat length.  The reason why many repeated copies of <tt>"CAG"</tt> in <em>Huntingtin</em> leads to disease is that this gene produces a protein with many copies of glutamine (<tt>"CAG"</tt> codes for glutamine), which increases the decay rate of neurons.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Would it be better to use multiple reference genomes instead of a single reference genome?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Perhaps in theory, but in practice, biologists still use one reference genome, since comparison against thousands of reference genomes would be time-consuming.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">What is the point of appending the "$" sign to <i>Text</i> when we construct <i>SuffixTrie</i>(<i>Text</i>)? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Construct the suffix trie for "papa" and you will see why we have added the "$" sign – without the "$" sign, the suffix "pa" will become a part of the path spelled by the suffix "papa".</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why do we construct the trie of all suffixes and not the trie of all prefixes for pattern matching?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>If a pattern matches the text starting at position <em>i</em>, we want this pattern to correspond to a path starting at the root of a constructed tree. Therefore, we are interested in the suffix starting at position <em>i</em> rather than the prefix ending at position <em>i</em>.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why do we need an edge from the root to the leaf in the suffix tree (labeled by the "$" sign) if this edge is never traversed during pattern matching? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Although we indeed do not need this edge, it is included to simplify the description of the suffix tree. </p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">What are the edge labels in the suffix tree for <tt>"panamabananas$"</tt>?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>The suffix tree for <tt>"panamabananas$"</tt> reproduced below contains 17 edges with the following labels (note that different edges may have the same labels):</p>
+
+<p><br></p>
+
+<pre><code>$
+a
+bananas$
+mabananas$
+na
+mabananas$
+nanas$
+s$
+s$
+bananas$
+mabananas$
+na
+mabananas$
+nas$
+s$
+panamabananas$
+s$
+</code>
+</pre>
+
+<figure><center><img src="../images/BWT/suffix_tree.png" width="70%"</center></figure>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How does storing <i>SuffixTree</i>(<i>Text</i>) require memory on the order of 20·|<i>Text</i>| if the number of nodes in the suffix tree does not exceed 2·|<i>Text</i>|?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>In addition to storing the nodes and edges of the suffix tree, we also need to store the information at the edge labels. Storing this information takes most of the memory allocated for the suffix tree.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How can I construct a suffix tree in linear time?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Suffix trees were introduced by <a href="https://dx.doi.org/10.1109%2FSWAT.1973.13" target="_blank">Weiner, 1973</a>. However, the original linear-time algorithm for building the suffix tree was extremely complex. Although the Weiner algorithm was greatly simplified by Esko Ukkonen in 1995, it is still non-trivial. Check out <a href="http://stackoverflow.com/a/9513423" target="_blank">this excellent StackOverflow post</a> by Johannes Goller if you are interested in seeing a full explanation.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why does the suffix tree for the 3-billion nucleotide  human require about 60 GB of memory?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>A suffix tree for a string <i>Text</i> has |<i>Text</i>|+1 leaves and up to |<i>Text</i>| other nodes. The last figure in "Charging Station: Constructing a Suffix Tree" illustrates that we need to store two (rather large) numbers for each edge of the suffix tree, each requiring at least 4 bytes for the aprroximately 3 billion nucleotide human genome. Thus, since there are approximately 2·|<i>Text</i>| edges in the suffix tree of <i>Text</i>, the suffix tree for the human genome requires at least 3· 10<sup>9</sup>·2·(4+4) = 48 GB. And we have not even taken into account some other things that need to be stored, such as the human genome itself :) </p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How do we construct the suffix tree for a human genome with 23 chromosomes?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>You can simply construct the suffix tree for the contatenation of all 23 chromosomes. Don't forget to add 22 different delimiters (i.e., any symbols that differ from “<tt>A</tt>”, “<tt>C</tt>”, “<tt>G</tt>”, and “<tt>T</tt>”) when you construct the concatenated string.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Can I see an example of how PatternMatchingWithSuffixArray works?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>We illustrate how <b>PatternMatchingWithSuffixArray</b> matches <tt>"ana"</tt> against the suffix array of <tt>"panamabananas$"</tt>, reproduced below from the main text (the suffix array is the column on the left).</p>
+
+				<p><br></p>
+
+				<figure><center><img src="../images/BWT/suffix_arrray-2.png" width="50%"></center></figure>
+
+				<ul>
+					<li>It first initializes <i>minIndex</i> = 0 and <i>maxIndex</i> = |<i>Text</i>| = 13 and computes <i>midIndex</i> = ⌊(0+13)/2⌋ = 6.  It then compares <i>Pattern</i> with the suffix <tt>"as$"</tt> of <i>Text</i> starting at position <i>SuffixArray</i>(6). Since <tt>"ana"</tt> < <tt>"as$"</tt>, it assigns <i>maxIndex</i> = <i>midIndex</i> - 1 = 5 and computes <i>midIndex</i> = ⌊(0+5)/2⌋ = 2.</li>
+
+					<li>Since <tt>"ana"</tt> is larger than suffix <tt>"amabananas$"</tt> of <i>Text</i> starting at position <i>SuffixArray</i>(2), it assigns <i>minIndex</i> - <i>midIndex</i> + 1 = 3 and computes <i>midIndex</i> = ⌊(3+5)/2⌋ = 4.</li>
+					<li>Since <tt>"ana"</tt> is smaller than the suffix <tt>"ananas$"</tt> of <i>Text</i> starting at position <i>SuffixArray</i>(4), it assigns <i>maxIndex</i> = <i>midIndex</i> - 1 = 3 and computes <i>midIndex</i> = ⌊(3+3)/2⌋ = 3.</li>
+					<li>Since <tt>"ana"</tt> is smaller than the suffix <tt>"anamabananas$"</tt> of <i>Text</i> starting at position <i>SuffixArray</i>(3), it assigns <i>maxIndex</i> = <i>midIndex</i> - 1 = 2.</li>
+				</ul>
+
+				<p>The last assignment breaks the first while loop since <i>maxIndex</i> is now smaller than <i>minIndex</i>. As a result, after the first while loop ends, we have <i>maxIndex</i> = 2, <i>minIndex</i> = 3, and</p>
+
+				<p><br></p>
+
+				<ul>
+					<li>suffix of <i>Text</i> starting at position <i>SuffixArray</i>(2) = <tt>"amabananas$"</tt> < <tt>"ana"</tt> </li>
+					<li>suffix of <i>Text</i> starting at position <i>SuffixArray</i>(3) = <tt>"anamabananas$"</tt> > <tt>"ana"</tt> </li>
+				</ul>
+
+				<p>Therefore, the first index of the suffix array corresponding to a suffix beginning with <tt>"ana"</tt> is <i>first</i> = 3.</p>
+
+				<p><br></p>
+
+				<p>The second while loop finds the last index of the suffix array corresponding to a suffix beginning with <tt>"ana"</tt>.</p>
+
+				<p><br></p>
+
+				<ul>
+					<li>PatternMatchingWithSuffixArray first sets <i>minIndex</i> = <i>first</i> = 3, <i>maxIndex</i> = |<i>Text</i>| = 13, and computes <i>midIndex</i> = ⌊(minIndex + maxIndex)/2⌋ = ⌊(3+13)/2⌋ = 8.</li>
+					<li>Since <tt>"ana"</tt> does not match the suffix <tt>"mabananas$"</tt> of <i>Text</i> starting at position <i>SuffixArray</i>(8), it assigns <i>maxIndex</i> = <i>midIndex</i> - 1 = 7 and computes <i>midIndex</i> = ⌊(3+7)/2⌋ = 5.</li>
+					<li>Since <tt>"ana"</tt> matches the suffix <tt>"anas$"</tt> of <i>Text</i> starting at position <i>SuffixArray</i>(5), it assigns <i>minIndex</i> = <i>midIndex</i> + 1 = 6 and computes <i>midIndex</i> = ⌊(6+7)/2⌋ = 6.</li>
+					<li>Since <tt>"ana"</tt> does not match the suffix <tt>"as$"</tt> of <i>Text</i> starting at position <i>SuffixArray</i>(6), it assigns <i>maxIndex</i> = <i>midIndex</i> - 1 = 5.</li>
+				</ul>
+
+					<p>The last assignment breaks the second while loop and assigs <i>last</i> = <i>maxIndex</i> = 5 as the last index of the suffix array corresponding to a suffix beginning with <tt>"ana"</tt>.</p>
+
+                    <p><br></p>
+
+                    <p>To better understand the logic of <b>PatternMatchingWithSuffixArray</b>, you may want to check the FAQ on modifying <b>BinarySearch</b> for determining how many times a key is present in an array with duplicates.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why does the suffix array for the 3-billion nucleotide  human require 12 GB of memory? Is about 3 GB not sufficient?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>The suffix array for the human genome indeed has about 3 billion elements. However, since each element represents one of 3·10<sup>9</sup> positions in the human genome, we need 4 bytes to store each element.  </p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why do we need the LCP array to transform a suffix array into a suffix tree?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>It may seem easier to subsequently add each suffix to the growing suffix tree by finding out where each newly added suffix branches from the growing suffix tree. But this straightforward approach results in quadratic running time, compared to the linear time algorithm in the textbook. (Keep in mind that the LCP array can be constructed in linear time.)
+</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<h3><a name="week2"></a>(Coursera Week 2)</h3>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Is it possible to construct the Burrows-Wheeler Transform in linear time and space?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Our naive approach to constructing BWT(<em>Text</em>) requires constructing the matrix M(<em>Text</em>) of all cyclic rotations, which requires O(|<em>Text</em>|<sup>2</sup>) time and space. However, there exist algorithms constructing BWT(<em>Text</em>) in linear time and space. One such algorithm first constructs the suffix array of <em>Text</em> in linear time and space, then uses this suffix array to construct BWT(<em>Text</em>).</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">What is special about the final column of the Burrows-Wheeler matrix?  Why not work with some other column? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>In short, the last column is the only invertible column of the Burrows-Wheeler matrix. In other words, it is the only column from which we are always able to reconstruct the original string <i>Text</i>.</p>
+
+				<p><br></p>
+
+				<p>For example, strings <tt>001</tt> and <tt>100</tt> have identical third columns in the Burrows-Wheeler matrix, as shown below.</p>
+
+				<p><br></p>
+
+<pre><code>$0<font color="blue">0</font>1      $1<font color="blue">0</font>0
+00<font color="blue">1</font>$      0$<font color="blue">1</font>0
+01<font color="blue">$</font>0      00<font color="blue">$</font>1
+1$<font color="blue">0</font>0      10<font color="blue">0</font>$
+</code>
+</pre>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Doesn't the Last-to-First mapping require a lot of memory?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>In practice, it is possible to compute the Last-to-First mapping of a given position of BWT(<em>Text</em>) with very low runtime and memory using the array holding the first occurrence of each symbol in the sorted string.  Unfortunately, the analysis is beyond the scope of this class. For details, please see <a href="http://dl.acm.org/citation.cfm?id=796543" target="_blank">Ferragina and Manzini, 2000</a> (click <a href="http://people.unipmn.it/manzini/papers/focs00draft.pdf" target="_blank">here</a> for full text).</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why does <i>FirstColumn</i> appear among the arguments in <b>BWMatching</b> if it is never used in the <b>BWMatching</b> pseudocode? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>We indeed do not use <i>FirstColumn</i> in <b>BWMatching</b>. Although it seemingly does not make sense, we prefer this because we use <i>FirstColumn</i> in a modification of  of <b>BWMatching</b> in a later section.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How does the array <i>FirstOccurrence</i> reduce memory if we still need the larger array <i>FirstColumn</i> to construct <i>FirstOccurrence</i> in the first place?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>When we use <i>FirstColumn</i> to construct <i>FirstOccurrence</i>, we can immediately release the memory taken by <i>FirstColumn</i>. Furthermore, there is an alternative way to construct <i>FirstOccurrence</i> without using <i>FirstColumn</i>. </p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why do the first and last occurrences of <i>symbol</i> in the range of positions from <i>top</i> to <i>bottom</i> in <i>LastColumn</i> have respective ranks <i>Count</i><sub><i>symbol</i></sub>(<i>top</i>, <i>LastColumn</i>)+1 and <i>Count</i><sub><i>symbol</i></sub>(<i>bottom</i>+1, <i>LastColumn</i>)?  </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Given an index <i>ind</i> in the array <i>LastColumn</i> (varying from 0 to 13 in the example shown in the text), the number of occurrences of <i>symbol</i> before position <i>ind</i> (i.e., in positions with indices less than <i>ind</i>) is defined by <i>Count</i><sub><i>symbol</i></sub>(<i>ind</i>, <i>LastColumn</i>). Since the number of occurrences of <i>symbol</i> starting before position <i>ind</i> is equal to <i>Count</i><sub><i>symbol</i></sub>(<i>ind</i>, <i>LastColumn</i>), the rank of the first occurrence of <i>symbol</i> starting from position <i>ind</i> is</p>
+
+				<p><br></p>
+
+				<p><center><i>Count</i><sub><i>symbol</i></sub>(<i>ind</i>, <i>LastColumn</i>) + 1</center></p>
+
+				<p><br></p>
+
+				<p>To be more precise, it is <i>Count</i><sub><i>symbol</i></sub>(<i>ind</i>, <i>LastColumn</i>) + 1 if <i>symbol</i> occurs in <i>LastColumn</i> at or after position <i>ind</i>.</p>
+
+				<p><br></p>
+
+				<p>Similarly, the rank of the last occurrence of symbol starting before or at position <i>ind</i> is given by</p>
+
+				<p><br></p>
+
+				<p><center><i>Count</i><sub><i>symbol</i></sub>(<i>ind</i> + 1, <i>LastColumn</i>)</center></p>
+
+				<p><br></p>
+
+				<p>For example, when <i>ind</i> = 5, the rank of the first occurrence of "n" starting at position 5 is <i>Count</i><sub>"n"</sub>(5, <i>LastColumn</i>) + 1 = 1 + 1 = 2. On the other hand, the rank of the last occurrence of "p" starting before or at position <i>ind</i> is <i>Count</i><sub>"p"</sub>(6, <i>LastColumn</i>) = 1.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Would it be possible to match a pattern using the Burrows-Wheeler Transform by moving forward through the pattern instead of moving backward? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Let's match <tt>"nam"</tt> against <i>BWT</i>(<tt>"panamabananas$"</tt>), but instead of matching backward (like in the figure below, reproduced from the text), let's try to match it forward. We can easily find the three occurrences of <tt>"n"</tt> in the first column to start this matching, but afterwards we need to match the next symbol <tt>"a"</tt> in <tt>"nam"</tt>. However, this symbol is "hiding" in the second column, and we have no clue what is in the second column - the Burrows Wheeler Transform does not reveal this information!  And there is no equivalent of the "First-Last Property" for the second column to help us.</p>
+
+				<figure><center><img src="../images/BWT/top_bottom_pointers.png"></center></figure>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Is <b>BetterBWMatching</b> guaranteed to terminate?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>The condition "<em>top</em> ≤ <em>bottom</em>" is a <strong>loop invariant</strong>, or a property that holds before and after each iteration of the loop.  In this case, if pattern matches have been found, the number of matches is equal to <em>bottom</em> - <em>top</em> + 1.  If pattern matches are not found, then at some point in the loop, <em>bottom</em> <em></em>becomes equal to <em>top</em> - 1, in which case <em>top</em> ≤ <em>bottom</em> and the loop terminates.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Would <b>BetterBWMatching</b> work properly if <i>Pattern</i> contains symbols that do not appear in <i>Text</i>? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>No; however, you can easily modify <b>BetterBWMatching</b> by first checking whether <i>Pattern</i> contains symbols not present in <i>Text</i> and immediately returning 0 in this case.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">In the main text, you illustrated walking backward in <b>BetterBWMatching</b> with the pattern "ana", which is a palindrome.  How can we match a non-palindromic pattern?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Try "walking backwards" to find the one pattern match of "ban" in "panamabananas$".</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<p><br></p>
+
+
+<h3><a name="week3"></a>(Coursera Week 3)</h3>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How do we select the constant <i>K</i> for constructing the partial suffix array?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Selecting a large value of <i>K</i> reduces the memory allocated to the partial suffix array by a factor of <i>K</i> but increases the time needed to "walk backward" during the pattern matching process (see the figure below, reproduced from the main text). This backward walk may take up to <i>K</i>-1 steps ((<i>K</i>-1)/2 steps on average). Thus, it makes sense to select the minimum value of <i>K</i> that allows fitting the BWT pattern matching code into the memory on your machine. </p>
+
+				<p><br></p>
+
+				<figure><center><img src="../images/BWT/top_bottom_pointers.png"></center></figure>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">If we have to construct the entire suffix array to build the partial suffix array, how can it save memory?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+                <p>The partial suffix array can indeed be constructed without constructing the (full) suffix array first. The figure below&nbsp;shows the partial suffix array of <em>Text&nbsp;</em>=&nbsp;&ldquo;panamabananas$&rdquo; with <em>K</em> = 5. Although it is unclear how to find where the entries <span style="color: #ff0000;">0</span>, <span style="color: #ff0000;">5</span>, and <span style="color: #ff0000;">10</span> in the suffix array are located without constructing this array first, we know that the top-most entry of the suffix array is 13, corresponding to the length of <em>Text</em>):</p>
+
+                <b><br></p>
+
+                <p><center><img src="../images/BWT/partial_suffix_array_faq_1.png"></center></p>
+
+                <p><br></p>
+
+                <p>Using the <em>LastToFirst </em>function, we can find out where entry 12 is located:</p>
+
+                <p><br></p>
+
+                <p><center><img src="../images/BWT/partial_suffix_array_faq_2.png"></center></p>
+
+                <p><br></p>
+
+                <p>And in turn, we can find entry 11:</p>
+
+                <p><br></p>
+
+                <p><center><img src="../images/BWT/partial_suffix_array_faq_3.png"></center></p>
+
+                <p><br></p>
+
+                <p>At last, we find entry <span style="color: #ff0000;">10</span>, which is the one we were looking for!</p>
+
+                <p><br></p>
+
+                <p><center><img src="../images/BWT/partial_suffix_array_faq_4.png"></center></p>
+
+                <p><br></p>
+
+                <p>After entry <span style="color: #ff0000;">10</span> in the partial suffix array is found, we can apply the <em>LastToFirst </em>function five more times and find the position of <span style="color: #ff0000;">5</span> in the partial suffix array. Slowly but surely, after another round of five applications of the <em>LastToFirst </em>function, we will find the position of <span style="color: #ff0000;">0</span>. &nbsp;</p>
+
+                <p><br></p>
+
+                <p>However, since the <em>LastToFirst </em>function consumes a lot of memory, we cannot explicitly use it to construct the partial suffix array. &nbsp;We could also use the <em>Count</em> arrays, but these require a lot of memory too&hellip; yet we can substitute the <em>Count</em> arrays by memory-efficient checkpoint arrays (which can also be computed without needing the original <em>Count</em> arrays) to achieve the same goal, and therefore construct the partial suffix array efficiently.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">It seems as though the partial suffix array will require using the <i>LastToFirst</i> mapping.  But we got rid of the <i>LastToFirst</i> mapping in order to speed up pattern matching and save memory! Why do we do this?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>We indeed got rid of the <i>LastToFirst</i> array; however, in the same section we saw how the <i>Count</i> arrays can be used as a substitute for <i>LastToFirst</i>. </p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How do we select the constant <i>C</i> when constructing checkpoint arrays?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Selecting a large value of&nbsp;<em>C</em>&nbsp;reduces the memory allocated to the checkpoint arrays by a factor of&nbsp;<em>C</em>&nbsp;but increases the time for computing <em>top</em> and <em>bottom</em> pointers by a factor of <em>C</em> in the worst case. Thus, it makes sense to select the minimum value of&nbsp;<em>C</em>&nbsp;that allows fitting the BWT pattern matching code into the memory on your machine.</p>
+            <?div>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">What modifications of <b>BetterBWMatching</b> are needed to make it work with checkpoint arrays instead of count arrays?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>To explain how to modify <b>BetterBWMatching</b> for working with checkpoint arrays, we explain how to quickly compute each value in the count array given the checkpoint arrays and <i>LastColumn</i>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p><br></p>
+
+<p>To compute <i>Count</i><sub><i>symbol</i></sub>(<i>i</i>, <i>LastColumn</i>), we represent <i>i</i> as <i>t</i>·<i>K</i> + <i>j</i>, where <i>j</i> < <i>K</i>. We can then compute <i>Count</i><sub><i>symbol</i></sub>(<i>i</i>, <i>LastColumn</i>) as <i>Count</i><sub><i>symbol</i></sub>(<i>t</i>·<i>K</i>, <i>LastColumn</i>) (contained in the checkpoint arrays) plus the number of occurrences of <i>symbol</i> in positions <i>t</i>·<i>K</i> + 1 to <i>i</i> in <i>LastColumn</i>.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How do biologists determine the maximum allowable number of mismatches while mapping reads to the human genome?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Biologists usually set a small threshold for the maximum number of mismatches, since otherwise read mapping becomes too slow.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Can reads that "fall off the edges of the text" form approximate matches?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>For example, does <em>Pattern</em> = <tt>"TT<strong>ACTG</strong>"</tt> match <em>Text</em> = <tt>"<strong>ACTG</strong>CTGCTG"</tt> with <em>d</em> = 2 mismatches? Not according to the statement of the Multiple Approximate Pattern Matching Problem, since there is no <em>starting position</em> in <em>Text</em> where <em>Pattern</em><em> </em>appears as a substring with at most <em>d</em> mismatches.
+However, if you want to count approximate matches falling off the edges of <i>Text</i>, you can simply add short strings formed by <tt>"$"</tt> signs before the start and after the end of <i>Text</i>.
+</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">What is the running time of approximate pattern matching using the Burrows Wheeler Transform?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Unfortunately, the running time scales roughly as <i>A</i><sup><i>k</i></sup>, where <i>A</i> is the alphabet size and <i>k</i> is the number of mismatches.  This is why the existing read matching tools based on the Burrows Wheeler Transform become prohibitively slow when the number of mismatches increases. For more details, see N. Zhang, A. Mukherjee, D.Adjeroh, T. Bell. <a href="http://ieeexplore.ieee.org/document/1194077/">"Approximate Pattern Matching using the Burrows-Wheeler Transform."</a> <i>Data Compression Conference</i>, 2003, 458. </p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How does seed extension work?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>After finding a seed of length <em>k</em> that starts at position <em>i</em> in <em>Pattern</em> and position <em>j</em> in <em>Text</em>, approximate pattern matching algorithms find a substring of <em>Text</em> of length |<em>Pattern</em>| that starts at position <em>j-i</em>. &nbsp;If this substring matches <em>Pattern</em> with at most <em>d</em> mismatches, then it is reported as an approximate match between <em>Pattern </em>and <em>Text</em>.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How does BLAST find all <i>k</i>-mers that have scores above a given threshold when scored against a <i>k</i>-mer in the query string? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>To find all <em>k</em>-mers that score above a threshold against a given <em>k</em>-mer <em>a,</em> we can generate the 1-neighborhood of <em>a</em> and retain only <em>k</em>-mers from this set that score above the threshold. Iterate by applying the same procedure to each <em>k</em>-mer in the constructed set. See the <a href="https://doi.org/10.1016/S0022-2836(05)80360-2" target="_blank" rel="noopener">BLAST paper</a> for a more efficient algorithm.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How does BLAST extend the seeds that it identifies? Does it not require constructing an optimal alignment, thus significantly slowing down the algorithm? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>After finding a seed, BLAST does construct an alignment but imposes a limit on the number of insertions and deletions in this alignment.  For example, after finding the two amino acid-long seed <tt><font color="red">CG</font></tt> below, we can find the best local alignment starting at the “end” of this seed (shown by the blue rectangle shown below) and another local alignment ending at the “beginning” of this seed (the corresponding rectangle is not shown). The resulting local alignments extending this seed from both sides form a full-length alignment.</p>
+
+                <p><br></p>
+
+                <figure>
+                    <center><img src="../images/BWT/BLAST_faq_1.png"></center>
+                </figure>
+
+                <p><br></p>
+
+                <p>However, since finding an optimal local alignment in the blue rectangle above is time consuming, BLAST instead finds a highest-scoring alignment path in a narrow band as illustrated below. Since the band is narrow, the algorithm constructing this <b>banded alignment</b> is fast.</p>
+
+                <p><br></p>
+
+                <figure>
+                    <center><img src="../images/BWT/BLAST_faq_2.png"></center>
+                </figure>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How can I modify the approximate pattern matching with the Burrows-Wheeler transform to account for patterns whose last symbols do not appear in <i>Text</i>?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>The algorithm illustrated in the epilogue would fail to find an approximate match of <tt>"nad"</tt> because the final symbol of <tt>"nad"</tt> does not appear in <tt>"panamabananas$"</tt>.  To address this complication, we can modify the algorithm for finding a pattern of length <em>m</em> with up to <em>k</em> mismatches as follows.</p>
+
+<p><br></p>
+
+<p>We first run the algorithm described in the main text to find all approximate instances of a <em>Pattern</em> of length <em>k</em> against <em>Text</em>. However, this algorithm does not actually find all approximate matches of <em>Pattern</em> – since we do not allow mismatched strings in the early stages of <strong>BetterBWMatching</strong>, we miss those matches where the last letter of <i>Pattern</i> does not match <em>Text</em>. To fix this shortcoming, we can simply find all locations in <em>Text</em> where the prefix of <em>Pattern</em> of length <em>k</em> - 1 has <em>d</em> - 1 mismatches. Yet this algorithm fails to find matches where the last two letters of <em>Pattern</em> do not match <em>Text</em>. Thus, we need to run the algorithm again, finding all locations in <em>Text</em> where the prefix of <em>Pattern</em> of length <em>k</em> - 2 has <em>d </em> - 2 mismatches. We then find all locations in <em>Text</em> where the prefix of <em>Pattern </em>of length <em>k</em> - 3 occurs with <em>d</em> - 3 mismatches, and so on, finally finding all locations in <em>Text</em> where the prefix of <em>Pattern</em> of length <em>k</em> - <em>d</em> occurs exactly.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">When we approximately match patterns with the Burrows-Wheeler transform, we consider possibilities of mismatches in all positions but the first one.  Wouldn't this strategy fail to match a read with an error at the first position?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Yes, this strategy would fail to match a read with an error at the first position. However, as noted in the main text, if we start considering mismatches at the first position, the running time will significantly increase. As is, the running time explodes with the increase in the maximum number of errors. If one wants to alow mismatches at the first position, a more sensible strategy would be to trim the first position of the read.</p>
+
+                <p><br></p>
+
+                <p>To see how modern read mapping algorithms get around this limitation, see <a href="https://doi.org/10.1186/gb-2009-10-3-r25">B.Langmead, C. Trapnell, M. Pop, S. L Salzberg. Ultrafast and memory-efficient alignment of short DNA sequences to human genome (2009) <i>Genome biology</i>, 10, R25</a>.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why do we add both the # and $ symbols to the texts when solving the Longest Shared Substring Problem?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Consider the strings "<span style="color: #3366ff;">mapa</span>" and "<span style="color: #ff0000;">pepap</span>", with longest shared substring &ldquo;pa&rdquo;. If we use both &ldquo;#&rdquo; and &ldquo;$&rdquo;, then we construct the suffix tree for "<span style="color: #3366ff;">mapa</span>#<span style="color: #ff0000;">pepap</span>$", which reveals the longest shared substring &ldquo;pa&rdquo;. If we do not use &ldquo;#&rdquo;, then we construct the suffix tree for "<span style="color: #3366ff;">mapa</span><span style="color: #ff0000;">pepap</span>$", falsely concatenating the two strings. &nbsp;In this suffix tree, we would find &nbsp;the erroneous longest shared substring &ldquo;pap&rdquo; in the concatenated string "ma<strong>pa</strong><strong>p</strong>e<strong>pap</strong>$".</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How should I modify BinarySearch if I want to determine how many times a key is present in an array with duplicates?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+                <p>If <em>key</em> appears in <em>Array[minIndex,&hellip;, maxIndex]</em>, <strong>BinarySearchTop</strong> and <strong>BinarySearchBottom</strong> find the indexes of its first and last occurrences, respectively. Note that in the case of<strong> BinarySearchTop, </strong><em>key &gt;Array(i) </em>&nbsp;for all <em>i</em> &lt; <em>minIndex</em> and <em>key</em> &le; <em>Array(i)</em> for all <em>i&gt;maxIndex</em>. &nbsp;In contrast, in the case of<strong> BinarySearchBottom, </strong><em>key </em>&ge; <em>Array(i) </em>&nbsp;for all <em>i</em>&lt;<em>minIndex</em> and <em>key</em> &lt; <em>Array(i)</em> for all <em>i&gt;maxIndex</em>. &nbsp;</p>
+
+                <p><br></p>
+
+                <p><strong>BinarySearchTop(</strong><em>Array</em><strong>, </strong><em>key<strong>, </strong>minIndex<strong>, </strong>maxIndex</em>)<strong><br /></strong><strong>&nbsp; &nbsp; while</strong> <em>maxIndex</em> &ge; <em>minIndex<br /></em><em>&nbsp; &nbsp; &nbsp; &nbsp; midIndex</em>&nbsp;=&nbsp;(<em>minIndex + maxIndex</em>)/2<br /><strong>&nbsp; &nbsp; &nbsp; &nbsp; if </strong><em>Array</em>(<em>midIndex</em>) &ge; <em>key<br /></em><em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; maxIndex</em>&nbsp;=&nbsp;<em>mid-</em>1<br /><strong>&nbsp; &nbsp; &nbsp; &nbsp; else<br /></strong><em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; minIndex</em>&nbsp;=&nbsp;<em>mid+</em>1<br /><strong>&nbsp; &nbsp; return</strong> <em>minIndex</em></p>
+
+                <p><br></p>
+
+                <p><strong>BinarySearchBottom</strong>(<em>Array</em><strong>, </strong><em>key<strong>, </strong>minIndex<strong>, </strong>maxIndex</em>)<strong><br /></strong><strong>&nbsp; &nbsp; while</strong> <em>maxIndex</em> &ge; <em>minIndex<br /></em><em>&nbsp; &nbsp; &nbsp; &nbsp; midIndex</em>&nbsp;=&nbsp;(<em>minIndex + maxIndex</em>)/2<br /><strong>&nbsp; &nbsp; &nbsp; &nbsp; if </strong><em>Array</em>(<em>midIndex</em>) &gt; <em>key<br /></em><em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; maxIndex</em>&nbsp;=&nbsp;<em>mid-</em>1<br /><strong>&nbsp; &nbsp; &nbsp; &nbsp; else<br /></strong><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</strong><em>minIndex =</em>&nbsp;<em>mid+</em>1<br /><strong>&nbsp; &nbsp; return</strong> <em>minIndex</em></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<!--
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Question here</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				Answer here
+			</div>
+		</div>
+	</div>
+</div>
+-->
+
+
+
+		</div>
+	</div>
+  <div id="footer" class="container_24 clearfix">
+          <div class="footer-links">
+     <img style="float: left;" src="/../images/alp_logo.png" alt="Active Learning Publishers" height="50" />  <a style="float: right;" href="http://rosalind.info/problems/list-view/?location=bioinformatics-textbook-track" target="_blank"><img style="padding:10px;"  src="/images/rosalind_logo_white.png" alt="Rosalind" height="50" /></a>
+     &#169; 2018 by Phillip Compeau &amp; Pavel Pevzner | All Rights Reserved<br>
+      ISBN: 978-0-9903746-3-3<br>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

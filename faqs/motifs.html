@@ -1,1 +1,549 @@
-<meta http-equiv="Refresh" content="0; url=http://bioinformaticsalgorithms.org" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<!-- Mobile Redirect -->
+<script src="http://static.dudamobile.com/DM_redirect.js" type="text/javascript"></script>
+<script type="text/javascript">DM_redirect("http://m.bioinformaticsalgorithms.com");</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FAQs | Chapter 2 | Which DNA Patterns Play the Role of Molecular Clocks? </title>
+<link rel="stylesheet" type="/text/css" href="../Styles/960_24_col.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/reset.css" />
+<link rel="stylesheet" type="/text/css" href="../Styles/text.css" />
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51449831-1', 'bioinformaticsalgorithms.com');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- Needed for JQuery in order to have expandable FAQs -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<!-- JQuery Javascript code -->
+<script>
+ $(document).ready(function() {
+
+	$('.faq_question').click(function() {
+
+		if ($(this).parent().is('.open')){
+			$(this).closest('.faq').find('.faq_answer_container').animate({'height':'0'},500);
+			$(this).closest('.faq').removeClass('open');
+
+			}else{
+				var newHeight =$(this).closest('.faq').find('.faq_answer').height() +'px';
+				$(this).closest('.faq').find('.faq_answer_container').animate({'height':newHeight},500);
+				$(this).closest('.faq').addClass('open');
+			}
+
+	});
+
+});
+</script>
+
+</head>
+
+<body>
+
+    <div id="content" class="container_24 clearfix">
+      <div class="main-content">
+        <div class="header-img">
+          <img src="../images/header-img.jpg" alt="Bioinformatics Algorithms: An Active Learning Approach" width="960" height="330" />
+        </div>
+        <div class="nav">
+          <ul>
+            <li><a href="../index.htm">Home</a></li>
+            <li><a href="../about-the-author.htm">Authors</a></li>
+            <li><a href="../contents.htm">Contents</a></li>
+            <li><a href="../faqs.htm">FAQs</a></li>
+            <li><a href="../videos.htm">Videos & Slides</a></li>
+                        <li><a href="https://secure.mybookorders.com/Orderpage/1402">Buy the Book!</a></li>
+            <li><a class="active" href="../contact.htm">Contact</a></li>
+          </ul>
+        </div>
+
+
+    	<div class="section-about">
+
+<h1>Chapter 2: Which DNA Patterns Play the Role of Molecular Clocks?</h1>
+
+<h3><a name="week3"></a>(Week 3)</h3>
+
+<a name="feedback_loop"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How did biologists learn that the circadian clock is controlled by a feedback loop?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Recent studies of <i>Arabidopsis thaliana</i> (a model organism for plant biology) have revealed that the circadian clock works differently than was described in our book and in <a href="http://www.ncbi.nlm.nih.gov/pubmed/11118138" target="_blank">Harmer et al., 2000</a>. However, one of our learners, Bahar Behsaz, brought to our attention a recent article, <a href="http://www.ncbi.nlm.nih.gov/pubmed/22395476" target="_blank">Pokhilko et al., 2012</a>. According to this article, the expression of CCA1 and LHY peaks in the early morning, whereas the expression of TOC1 peaks in the early evening. The authors showed that TOC1 in fact serves as a repressor of CCA1 and LHY in the morning loop.</p>
+
+<p><br></p>
+
+<p>Their revised circadian cycle is shown below (bottom left is the new version, upper right is the previous outline of the cycle).</p>
+
+<p><br></p>
+
+<figure><center><img src="http://d3dwu2jylmmhzr.cloudfront.net/content/msb/8/1/574/F1.medium.gif" width="75%"></center></figure>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="shorter_motif"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Instead of defining the 12 nucleotide-long NF-χB motif with consensus <tt>TCGGGGATTTCC</tt>, why didn’t we identify the much more conserved 5 nucleotide-long motif <tt>GGGGA</tt> formed by positions 3-7 in the NF-χB motif?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+			<p>Although <tt>GGGGA</tt> indeed represents the most conserved part of the NF-χB motif, the remaining seven less conserved positions do contribute to distinguishing real occurrences of the NF-χB binding sites from other sporadic 12-mers that contain <tt>GGGGA</tt>.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="k_selection"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How should we select the parameter <i>k</i> (representing the length of the motif) in motif-finding algorithms?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+			<p>Since biologists do not know in advance the length of the regulatory motif, they try various values of <i>k</i> and select a solution  that makes more sense.  For example, if <i>k</i> is larger than the length of the regulatory motif, then the initial/ending positions in the computed motif will have low information content, implying that a smaller value of <i>k</i> makes more sense.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<a name="thousands_15-mers"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why does the fact that there are 1000s of similar 15-mers fewer than 8 nucleotides apart in the Subtle Motif Problem prevent us from identifying the implanted motifs by pairwise comparisons?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+			<p>Most of these similar 15-mers result from spurious similarities and have nothing to do with the real implanted motifs. Thus, if we attempt to extend these spurious pairwise similarities in ten similar 15-mers (there are ten sequences in the Subtle Motif Problem), then we will fail.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="entropy"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why does entropy represent a "measure of uncertainty"?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Imagine three urns, each of which contains eight colored balls.  The first urn contains eight balls of eight different colors.  The second urn contains four blue balls, three green balls, and one red balls.  The third urn contains eight blue balls.  If you randomly draw a ball from an urn, then you are most certain about the outcome when drawing from the third urn, and the least certain about the outcome when drawing from the first urn.  But can we somehow quantify this uncertainty?</p>
+
+<p><br></p>
+
+<p>In 1948, Claude Shannon (the founder of <a href="http://en.wikipedia.org/wiki/Information_theory" target="_blank" rel="noopener nofollow">information theory</a>) wanted to find a function <em>H</em>(<i>p</i><sub>1</sub>, ... , <i>p</i><sub><i>N</i></sub>) measuring the uncertainty of a probability distribution (<i>p</i><sub>1</sub>, ... , <i>p</i><sub><i>N</i></sub>). First, note that drawing balls from each urn can be represented as a probability distribution (i.e., a collection of nonnegative numbers summing to 1). For example, the respective probability distributions for the three urns are (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8); (4/8, 3/8,1/8); and (1). </p>
+
+<p><br></p>
+
+<p>Shannon made an important observation that we will illustrate using the urn example.  Imagine that a red-green color-blind man draws a ball from the second urn. If he draws a blue ball, then he will immediately know it is blue, but he will not be able to distinguish between red balls and green balls.  However, we can devise an equivalent experiment involving two draws. The color-blind man first draws a ball from an urn containing four blue and four black balls (the probability distribution is (1/2, 1/2)); then, if a black ball is chosen (with probability equal to 1/2), he then draws a ball from a separate urn containing three green balls and one red ball, marked "G" and "R" respectively so that he can distinguish them (again, the associated probability distribution is (3/4, 1/4)).</p>
+
+<p><br></p>
+
+<p>Although we have substituted a one-draw experiment with a two-draw experiment, Shannon's critical observation was that the uncertainty of the process should not have changed! In other words, the entropy of the first experiment (<em>H</em>(4/8, 3/8, 1/8)) should be equal to the entropy of the first draw (<em>H</em>(1/2, 1/2)) plus 1/2 times the entropy of the second draw (<em>H</em>(3/4, 1/4)), since there is probability 1/2 that the second draw will occur. Thus, </p>
+
+<p><br></p>
+
+<p><center><em>H</em>(4/8, 3/8, 1/8) = <em>H</em>(1/2, 1/2) + (1/2) * <em>H</em>(3/4, 1/4).</center></p>
+
+<p><br></p>
+
+<p>Shannon further argued that <em>H</em> should be a continuous function of  <em></em>(<em>p</em><sub>1</sub>, ... <em>p</em><em><sub>N</sub></em>), and that it should be maximized in the case of maximum uncertainty, which occurs when <em>p</em><sub>1</sub> = ... =  <em>p</em><em><sub>N</sub></em> = 1/<em>N</em>.  It turns out that the only way <em>H</em>(<em>p</em><sub>1</sub>, ... <em>p</em><em><sub>N</sub></em>) can satisfy these conditions is if it is proportional to</p>
+
+<p><br><p>
+
+<p><center>Σ<sub><em>i</em> = 1, </sub><em><sub>N</sub></em> <em>p</em><sub><em>i</em></sub><em> * </em>log<sub>2</sub>(<em>p<sub>i</sub></em>),</center></p>
+
+<p><br></p>
+
+<p>and thus entropy was born.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<p><br></p>
+
+<a name="information_content"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why do the perfectly conserved columns in the motif logo have information content smaller than 2?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+			<p>In practice, information content is computed as <em>H</em>(<em>p</em><sub>1</sub>, <em>p</em><sub>2</sub>, <em>p</em><sub>3</sub>, <em>p</em><sub>4</sub><em></em>) + <em>e<sub>n</sub></em>, where <em>e<sub>n</sub></em> is a small-sample correction for a column of <em>n</em> letters.
+  Small-sample correction is responsible for the height of G in the
+third and fourth position (see figure below reproduced from the text)
+being smaller than 2.</p>
+
+<p><br><p>
+
+<figure><center><img title="Image: https://d396qusza40orc.cloudfront.net/bioinformatics/images/motif_logo.png" src="https://d396qusza40orc.cloudfront.net/bioinformatics/images/motif_logo.png" width="60%"></center></figure>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br><p>
+
+<a name="score_row-by-row"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why is computing <em>Score</em>(<em>Motifs</em>) row-by-row any better than computing this score column-by-column?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer"><p>Please continue reading to the subsection "Why have we reformulated the motif finding problem?" to find out!</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<p><br><p>
+
+<a name="notions_of_distance"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">The section "From Motif Finding to Finding a Median
+String" introduces four different notions of distance.  This is insane;
+how am I supposed to distinguish between them?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>There are indeed four different notions of distance in this section.  To make matters worse, we use the notation <em>d</em>(*, *) to refer to three of them -- the exception being Hamming distance.However, we see this not as a bug but as a feature, since we want you to think about these four notions of distance in the same framework because they are all related to each other.  To determine what specific notion of distance we are talking about at any given point in time, you should pay attention to the arguments in <em>d</em>(*, *).  Here are the four possible arguments for these cases:</p>
+
+<p><br><p>
+
+
+<ol><li>
+<em>HammingDistance</em>(<em>k</em>-mer, <em>k</em>-mer)</li><li>
+<em>d</em>(<em>k</em>-mer, collection of <em>k</em>-mers)
+</li><li>
+<em>d</em>(<em>k</em>-mer, string) -- where the string's length is at least equal to <em>k</em>
+</li><li>
+<em>d</em>(<em>k</em>-mer, collection of strings) -- where each string's length is at least equal to <em>k</em>
+</li></ol><p>To test your knowledge of these functions, first say that <em>Pattern</em> = ACGT and <em>Pattern</em>' = ATAT. Then <em>HammingDistance</em>(<em>Pattern, </em><em>Pattern'</em>) = 2. Second, say that <em>Motifs</em> = {<tt>TACG</tt>, <tt>GCGT</tt>, <tt>GGGG</tt>}.  Then the Hamming distances between <em>Pattern</em> and each of these 4-mers are 4, 1, and 3 respectively; thus, <em>d</em>(<em>Pattern, </em><em>Motifs</em>) = 4 + 1 + 3 = 8. Third, say that <em>Text</em> = <tt>TTACCATGTA</tt>.  We know that <em>d</em>(<em>Pattern, </em><em>Text</em>) is equal to the minimum Hamming distance between <em>Pattern</em> and any <em>k</em>-mer substring of <em>Text</em>. This Hamming distance is minimized by the substring ATGT of <em>Text</em>, so <em>d</em>(<em>Pattern, </em><em>Text</em>) in this case is equal to 1. Finally, say that <em>Dna</em> = {<tt>AGACCAGC</tt>, <tt>ACGTT</tt>, <tt>CACCCATGTCGG</tt>}.  In this case, <em>d</em>(<em>Pattern, </em><em>Dna</em>) is equal to the sum of distances</p>
+
+<p><br><p>
+
+<p><center><em>d</em>(<tt>ACGT</tt>, <tt>AGACCAGC</tt>) + <em>d</em>(<tt>ACGT</tt>, <tt>ACGTT</tt>) + <em>d</em>(<tt>ACGT</tt>, <tt>CACCCATGTCGT</tt>) = 2 + 0 + 1 = 3.</center></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br><p>
+
+<a name="encode_infinity"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How can I encode infinity?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+			<p>The purpose of setting a variable equal to infinity is when initializing a variable <em>x</em> that you aim to minimize. The idea is to pick a number that is far larger than <em>x</em> could possibly be. If you want to get fancy, then initialize <em>x</em> to be the largest integer that can be encoded by your programming language.<strong></strong></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br><p>
+
+<a name="greedy_motif_search"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Can I see an example of <b>GreedyMotifSearch</b> on a sample dataset?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Sure! &nbsp;Below is an example, and you may also like to read <a href="http://www.mrgraeme.co.uk/greedy-motif-search/" target="_blank">this blog post</a> by our student Graeme Benstead-Hume. Consider the following matrix <em>Dna</em>, and let us walk through <strong>GreedyMotifSearch</strong>(<em>Dna</em>, 4, 5) when we select the 4-mer <tt>ACCT</tt> from the first sequence in <em>Dna</em> as the first 4-mer in the growing collection <em>Motifs</em>.</p>
+
+<p><br></p>
+
+<p>Although <strong>GreedyMotifSearch</strong>(<em>Dna</em>, 4, 5) will analyze all possible 4-mers from the first sequence, we limit our analysis to a single 4-mer <tt>ACCT</tt>:</p>
+
+<p><br></p>
+
+<p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;TT<span style="color: blue;">ACCT</span>TAAC<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AGGATCTGTC<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i><span style="color: rgb(0, 176, 80);">Dna</span></i>&nbsp;&nbsp;</span></b><span style="font-family: 'Courier New'; font-size: 11pt;">CCGACGTTAG<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CAGCAAGGTG<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CACCTGAGCT<b><span style="color: blue;"></p>
+
+<p><br></p>
+
+<p>We first construct the matrix&nbsp;<em>Profile</em>(<em>Motifs</em>) of the chosen 4-mer <tt>ACCT</tt>:</p>
+<p><br></p>
+<p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<b><i><span style="color: red;">Motifs</span></i></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A&nbsp;&nbsp;&nbsp; C&nbsp;&nbsp;&nbsp; C&nbsp;&nbsp;&nbsp; T&nbsp;&nbsp;&nbsp;&nbsp;<o:p></o:p></span></p><p align="center" class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in; text-align: center;"><span style="color: blue; font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family: Calibri; font-size: 11pt;"><o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A:&nbsp;&nbsp;&nbsp; 1&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;&nbsp;0<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C:&nbsp;&nbsp; &nbsp;0&nbsp; &nbsp;&nbsp;1&nbsp; &nbsp;&nbsp;1&nbsp; &nbsp;&nbsp;0<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;<b><i><span style="color: blue;">Profile</span>(<span style="color: red;">Motifs</span>)</i></b>&nbsp;&nbsp;&nbsp; G:&nbsp;&nbsp; &nbsp;0&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;&nbsp;0<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; T:&nbsp;&nbsp; &nbsp;0&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;&nbsp;1</p>
+
+<p><br></p>
+
+<p>Since Pr(<em>Pattern</em>|<em>Profile</em>) = 0 for all 4-mers in the second sequence in&nbsp;<em>Dna</em>, we select its first 4-mer <tt>AGGA</tt> as the&nbsp;<em>Profile</em>-most probable 4-mer, resulting in the following matrices&nbsp;<em>Motifs</em>&nbsp;and&nbsp;<em>Profile</em>:<br><strong><br></strong><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><i><span style="color: red; font-family: 'Courier New'; font-size: 11pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<b>Motifs</b></span></i><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A&nbsp;&nbsp;&nbsp; C&nbsp;&nbsp;&nbsp; C&nbsp;&nbsp;&nbsp; T&nbsp;<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A&nbsp;&nbsp;&nbsp; G&nbsp;&nbsp;&nbsp; G&nbsp;&nbsp;&nbsp; A&nbsp;&nbsp;&nbsp;<o:p></o:p></span></p><p align="center" class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in; text-align: center;"><span style="color: blue; font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family: Calibri; font-size: 11pt;"><o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A:&nbsp;&nbsp;&nbsp; 1&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;1/2<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C:&nbsp;&nbsp; &nbsp;0&nbsp; &nbsp;1/2&nbsp; 1/2&nbsp; &nbsp;0<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;<b><i><span style="color: blue;">Profile</span>(<span style="color: red;">Motifs</span>)</i></b>&nbsp;&nbsp;&nbsp; G:&nbsp;&nbsp; &nbsp;0&nbsp; &nbsp;1/2&nbsp; 1/2&nbsp; &nbsp;0<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; T:&nbsp;&nbsp; &nbsp;0&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;1/2</p>
+
+<p><br></p>
+
+<p>We now compute the probabilities of every 4-mer in the third sequence in&nbsp;<em>Dna</em>&nbsp;based on this profile. &nbsp;The only 4-mer with nonzero probability in the third sequence is <tt>ACGT</tt>, and so we add it to the growing set of 4-mers:<br><strong><br></strong><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><i><span style="color: red; font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;T&nbsp;<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><i><span style="color: red;">Motifs</span></i></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;&nbsp;G&nbsp;&nbsp;&nbsp;&nbsp;G&nbsp;&nbsp;&nbsp;&nbsp;A<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;G&nbsp;&nbsp;&nbsp;&nbsp;T&nbsp;<o:p></o:p></span></p><p align="center" class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in; text-align: center;"><span style="color: blue; font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family: Calibri; font-size: 11pt;"><o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A:&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;1/3<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C:&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;2/3&nbsp;&nbsp;1/3&nbsp;&nbsp;&nbsp;0<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;<b><i><span style="color: blue;">Profile</span>(<span style="color: red;">Motifs</span>)</i></b>&nbsp;&nbsp;&nbsp;&nbsp;G:&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;1/3&nbsp;&nbsp;2/3&nbsp;&nbsp;&nbsp;0<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;T:&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;2/3</p>
+
+<p><br></p>
+
+<p>We now compute the probabilities of every 4-mer in the fourth sequence in&nbsp;<em>Dna</em>&nbsp;based on this profile and find that <tt>AGGT</tt> is the most probable 4-mer:</p>
+
+<p><br></p>
+
+<p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp; &nbsp; &nbsp; &nbsp;CAGC&nbsp;&nbsp;AGCA&nbsp;&nbsp;GCAA&nbsp;&nbsp;CAAG&nbsp;&nbsp;AAGG&nbsp;&nbsp;AGGT&nbsp;&nbsp;GGTG<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;1/27&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;4/27&nbsp;&nbsp;&nbsp;0</p>
+
+<p><br></p>
+
+<p>After adding <tt>AGGT</tt> to the&nbsp;<em></em>matrix&nbsp;<em>Motifs</em>, we obtain the following motif and profile matrices:</p>
+
+<p><br></p>
+
+<p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><i><span style="color: red; font-family: 'Courier New'; font-size: 11pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></i><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp; C&nbsp;&nbsp;&nbsp; C&nbsp;&nbsp;&nbsp; T&nbsp;<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><i><span style="color: red;">Motifs</span></i></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A&nbsp;&nbsp;&nbsp; G&nbsp;&nbsp;&nbsp; G&nbsp;&nbsp;&nbsp; A<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A&nbsp;&nbsp;&nbsp; C&nbsp;&nbsp;&nbsp; G&nbsp;&nbsp;&nbsp; T<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A&nbsp;&nbsp;&nbsp; G&nbsp;&nbsp;&nbsp; G&nbsp;&nbsp;&nbsp; T&nbsp;<o:p></o:p></span></p><p align="center" class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in; text-align: center;"><span style="color: blue; font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family: Calibri; font-size: 11pt;"><o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A:&nbsp;&nbsp;&nbsp; 1&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;1/4<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C:&nbsp;&nbsp; &nbsp;0&nbsp; &nbsp;2/4&nbsp; 1/4&nbsp; &nbsp;0<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;<b><i><span style="color: blue;">Profile</span>(<span style="color: red;">Motifs</span>)</i></b>&nbsp;&nbsp;&nbsp; G:&nbsp;&nbsp; &nbsp;0&nbsp; &nbsp;2/4&nbsp; 3/4&nbsp; &nbsp;0<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; T:&nbsp;&nbsp; &nbsp;0&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;3/4</p>
+
+<p><br></p>
+
+<p>We now compute the probabilities of every 4-mer in the fifth sequence in&nbsp;<em>Dna</em>&nbsp;based on this profile and find that <tt>AGCT</tt> is the most probable 4-mer:<br><strong><br></strong><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp; &nbsp; &nbsp; &nbsp;CACC&nbsp; ACCT&nbsp; CCTG&nbsp; CTGA&nbsp; TGAT&nbsp; GAGT&nbsp; AGCT<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;0&nbsp;&nbsp; 6/64 &nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp; 18/64</p>
+
+<p><br></p>
+
+<p>After adding <tt>AGCT</tt> to the motif matrix, we obtain the following motif matrix with consensus <tt>AGGT</tt>:</p>
+
+<p><br></p>
+
+<p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><i><span style="color: red; font-family: 'Courier New'; font-size: 11pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></i><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp; C&nbsp;&nbsp;&nbsp; C&nbsp;&nbsp;&nbsp; T&nbsp;<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A&nbsp;&nbsp;&nbsp; G&nbsp;&nbsp;&nbsp; G&nbsp;&nbsp;&nbsp; A<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><i><span style="color: red;">Motifs</span></i></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A&nbsp;&nbsp;&nbsp; C&nbsp;&nbsp;&nbsp; G&nbsp;&nbsp;&nbsp; T<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A&nbsp;&nbsp;&nbsp; G&nbsp;&nbsp;&nbsp; G&nbsp;&nbsp;&nbsp; T&nbsp;<o:p></o:p></span></p><p class="MsoNormal" style="margin: 0in 45pt 0pt 0.5in;"><span style="font-family: 'Courier New'; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A&nbsp;&nbsp;&nbsp; G&nbsp;&nbsp;&nbsp; C&nbsp;&nbsp;&nbsp; T</span><span style="font-family: Optima;"></p></div>
+		</div>
+	</div>
+</div>
+
+
+<p><br><p>
+
+<a name="greedy_kmer_selection"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why do we select the first <i>k</i>-mers in each string in <i>Dna</i> when we form the initial motif matrix <i>BestMotifs</i> in GreedyMotifSearch?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+			<p>You can select any set of <i>k</i>-mers to form the initial motif matrix <i>BestMotifs</i>. Note that as soon as a better collection of motifs are found, <i>BestMotifs</i> will be updated to this other collection.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<a name="probability_skew"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Aren’t we skewing the probability (compared to the true probabilities) when we add pseudocounts?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+			<p>Yes, the profile matrix with added pseudocounts may differ or even overestimate from the real probability distribution. But it presents the lesser of two evils, since we get ourselves into even bigger trouble if we don’t use pseudocounts. Furthermore, as another FAQ indicates, using a pseudocount value of 1 is not unreasonable in practice.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+
+
+<a name="pseudocount_values"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Isn't choosing a pseudocount value equal to 1 arbitrary? What would happen if we instead selected, say, 0.1?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>The choice of this parameter is arbitrary. However, perhaps surprisingly, changing the exact pseudocount value from 1 to 0.1 (or even to 0.00001) is unlikely to significantly change the results of the algorithms you implemented in this chapter. However, as described by <a href="http://www.ncbi.nlm.nih.gov/pubmed/19106141" target="_blank">Nishida et al., 2009</a>, some caution is needed when selecting pseudocounts. These authors found that a good default pseudocount value is 0.8.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><br></p>
+
+<a name="greedy_no_motifs"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Would <b>GreedyMotifSearch</b> (with pseudocounts) still find motifs if the first string in Dna contained no instances of the motif?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>The performance of <b>GreedyMotifSearch</b> does in fact deteriorate when the first string in <i>Dna</i> does not contain <i>k</i>-mers similar to the consensus motif. For this reason, biologists often run <b>GreedyMotifSearch</b> multiple times, shuffling the strings in <i>Dna</i> each time.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="week4"></a>
+
+<h3>(Week 4)</h3>
+
+<a name="las_vegas_algorithm"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Can you give me an example of a Las Vegas algorithm?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>The common example of a Las Vegas algorithm is quicksort:&nbsp;<a href="https://en.wikipedia.org/wiki/Quicksort">https://en.wikipedia.org/wiki/Quicksort</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="four_sided_die"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">What does a four-sided die look like?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>A tetrahedron, as shown below.</p>
+
+<p><br></p>
+
+<figure><center><img width="25%" title="four-sided die" src="https://d396qusza40orc.cloudfront.net/bioinformatics/images/four_sided_die.png"></center></figure>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="pseudocounts_randomizedmotifsearch"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Why don't we use pseudocounts in the pseudocode for <b>RandomizedMotifSearch</b>?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>In order to make your life easier.  However, modifying <strong>RandomizedMotifSearch</strong> to add pseudocounts will improve its performance.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="gibbs_sampler_local_minimum"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How can <b>GibbsSampler</b> be useful if it moves from motifs with better scores to motifs with worse scores?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Consider the "mountain range" shown below, and imagine that the&nbsp;<em>x</em>-axis represents all possible motifs, while the&nbsp;<em>y</em>-axis represents their inverted score; that is, better motifs will have lower scores but&nbsp;<em>higher</em>&nbsp;inverted score. To find the lowest-scoring motif, we need to climb to the top of the tallest peak (shown by the blue point). &nbsp;If you are not willing to "climb down" sometimes, the only way you can reach the top is if your initially chosen motif corresponds to the short interval highlighted in blue, a low probability event. An example of an algorithm that is unwilling to "climb down" is if we select the most probable <i>k</i>-mer instead of selecting a <i>Profile</i>-randomly generated <i>k</i>-mer each time. </p>
+
+<p><br></p>
+
+<p>In many practical instances of motif finding, this probability may be less than one in a million, so that even if we repeat our search 1,000 times, starting with a randomly selected collection of <em>k</em>-mers each time, we will probably not reach the tallest peak. In these cases, it makes sense to design an algorithm that is allowed to climb down, thus potentially <em>increasing</em> the time required to make it to the top, but also increasing the probability of success despite a poor initial choice of motifs.</p>
+
+<p><br></p>
+
+<figure><center><img width="50%" src="../images/Motifs/mountain_range.png"></center></figure>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="gibbs_termination"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Is there a way to decide that <b>GibbsSampler</b> has already found the correct motif and save time by stopping it?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Even when <b>GibbsSampler</b> finds the correct motif before the end of the run, it remains unclear whether an even better scoring motif exists. As a result, it is unclear under what conditions GibbsSampler should be stopped. Biologists often run GibbsSampler a fixed number of times or until the score of the identified motif does not significantly improve after a large number of iterations.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<p><br></p>
+
+<a name="gibbs_same_row"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">Does it make sense for <b>GibbsSampler</b> to select exactly the same row for removal in consecutive iterations? </div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>It may seem counterintuitive yet also only slightly slows us down while keeping our algorithm easy to state.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<p><br></p>
+
+<a name="randomizedmotifsearch_number_of_runs"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">When solving the Subtle Motif Problem, why did we run RandomizedMotifSearch 100,000 times, but we ran <b>GibbsSampler</b> only 2,000 times?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>There are no rigorous rules on how many times to run randomized algorithms other than "run them as many times as is feasible". In practice, researchers often allocate a certain computational resource (say, one hour of computing time) and make sure that a randomized algorithm completes within this fixed time interval. For example, if each run of RandomizedMotifSearch is 50 times faster than a run of GibbsSampler, then they can afford to run 50 times as many trials of RandomizedMotifSearch.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p><br></p>
+
+<a name="homonucleotide_runs"></a>
+<div class="faq_container">
+	<div class="faq">
+		<div class="faq_question">How do motif finding algorithms deal with homonucleotide runs that may score higher than real motifs?</div>
+		<div class="faq_answer_container">
+			<div class="faq_answer">
+				<p>Genomes often have <strong>homonucleotide runs</strong> such as <tt>AAAAAAAAA</tt> and other <strong>low-complexity regions</strong> like <tt>ACACAACCA</tt>. When a homonucleotide run appears in each sequence in <em>Dna</em>, it will likely score higher than the real regulatory motif. For this reason, in practice, motif finding algorithms mask out low-complexity regions before searching for regulatory motifs.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+		</div>
+	</div>
+
+  <div id="footer" class="container_24 clearfix">
+          <div class="footer-links">
+     <img style="float: left;" src="/../images/alp_logo.png" alt="Active Learning Publishers" height="50" />  <a style="float: right;" href="http://rosalind.info/problems/list-view/?location=bioinformatics-textbook-track" target="_blank"><img style="padding:10px;"  src="/images/rosalind_logo_white.png" alt="Rosalind" height="50" /></a>
+     &#169; 2018 by Phillip Compeau &amp; Pavel Pevzner | All Rights Reserved<br>
+      ISBN: 978-0-9903746-3-3<br>
+    </div>
+  </div>
+</div>
+</body>
+</html>
